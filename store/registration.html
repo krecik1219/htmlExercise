@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="programming, languages, store, webstore, e-commerce,
+        programming languages, c++, python, c, java, computer science, computing, shop,
+        online, buy, payment, developers, IT, books, courses, video, audio, registration">
+    <meta name="description" content="Polyglot webstore registration site">
+    <title>Webstore registartion</title>
+</head>
+<body>
+    <header>
+        <h3>Fill up the form and register for free</h3>
+    </header>
+
+    <form method="post" action="#" autocomplete="on">
+        <p>
+            <label>Name:
+                <input name="name" type="text" placeholder="Name" autofocus required>
+            </label>
+        </p>
+        <p>
+            <label>Surname:
+                <input name="surname" type="text" placeholder="Surname" required>
+            </label>
+        </p>
+            <p>
+            <label>Email:
+                <input name="email" type="email" placeholder="sample@mail.com" required>
+            </label>
+        </p>
+        <p>
+            <label>Mobile number:
+                <input name="mobileNum" type="tel" placeholder="+48 723 916 624"
+                       pattern="^([\+]?\d{2}\s)?(\d{3}\s\d{3}\s\d{3})$">
+            </label>
+        </p>
+        <p>
+            <label>Date of birth:
+                <input name="birthDate" type="date">
+            </label>
+        </p>
+        <p>
+            <label>Theme color:
+                <input name="themeColor" type="color" value="#9ae7fa">
+            </label>
+        </p>
+        <p>
+            <label>Github account url:
+                <input name="githubUrl" type="url" placeholder="https://github.com/username">
+            </label>
+        </p>
+        <p>
+            <label>Known languages number:
+                0<input name="knownLangsNum" type="range" min="0" max="25" value="3">25
+            </label>
+        </p>
+        <p>
+            <strong>How did you get to our site?:</strong><br>
+            <label>Search engine
+                <input name="howToSite" type="radio"
+                       value="search engine" checked></label>
+            <label>Links from another site
+                <input name="howToSite" type="radio"
+                       value="link"></label>
+            <label>Friends
+                <input name="howToSite" type="radio"
+                       value="friends"></label>
+            <label>Facebook
+                <input name="howToSite" type="radio"
+                       value="facebook"></label>
+            <label>Other
+                <input name="howToSite" type="radio"
+                       value="other"></label>
+        </p>
+        <p>
+            <strong>Read agreement and accept it.</strong>
+            <label>I accept agreement
+                <input name="agreement" type="checkbox" required>
+            </label>
+            <details>
+                <summary>Click to read agreement</summary>
+                There is no agreement at all.
+            </details>
+        </p>
+        <input name="submit" type="submit">
+    </form>
+    <p>
+        <a href="../index.html">Back to home page</a>
+    </p>
+
+    <footer id="contactInfo">
+        <address>
+            Contact mail address:
+            <a href="mailto:sample@mail.com">sample@mail.com</a>
+        </address>
+        <h4><del>&copy</del> Przemysław Szeliński, no rights at all.</h4>
+    </footer>
+</body>
+</html>
