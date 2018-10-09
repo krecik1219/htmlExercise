@@ -1,0 +1,125 @@
+a {
+    color: aquamarine;
+}
+
+a:hover {
+    color: white;
+}
+
+a:visited {
+    color: #c3b79b;
+}
+
+body {
+    color: rgb(0, 255, 0);
+}
+
+form[action="https://google.com/search?q="] {
+    font-size: 18px;
+}
+
+hr {
+    clear: both;
+}
+
+#logoFig {
+    position: relative;
+    left: 20%;
+}
+
+#mainGSearch {
+    background-color: rgba(185, 252, 128, 0.5);
+    height: 2em;
+}
+
+#mainGSearch::-webkit-input-placeholder {
+    color: hotpink;
+}
+
+#mainGSearch:-moz-placeholder {
+    color: hotpink;
+}
+
+#mainGSearch::-moz-placeholder {
+    color: hotpink;
+}
+
+#mainGSearch:-ms-input-placeholder {
+    color: hotpink;
+}
+
+#mainGSearch::placeholder {
+    color: hotpink;
+}
+
+#navigation {
+    display: block;
+}
+
+nav {
+    background-color: rgb(83, 103, 91);
+    border-bottom: 0.1em solid #2a3a75;
+    border-top: 0.1em solid #2a3a75;
+    text-align: center;
+    padding: 0.2em 0;
+    width: 100%;
+    color: aquamarine;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    font-size: 18px;
+    height: 35px;
+    display: inline-block;
+}
+
+ul a, .liCont {
+    text-decoration: none;
+    display: block;
+    margin-top: 5px;
+}
+
+ul > li {
+    float: left;
+    width: 150px;
+    height: 40px;
+    border-right: 1px dashed #4b1f75;
+}
+
+ul > li:FIRST-CHILD {
+    border-left: 1px dashed #896f96;
+}
+
+ul > li:hover {
+    background-color: #7d7a91;
+}
+
+ul > li > ol {
+    list-style-type: none;
+    margin: 8px 0 0 0;
+    padding: 0;
+    height: 40px;
+    display: none;
+}
+
+ul > li:hover > ol {
+    display: block;
+}
+
+ul > li > ol > li {
+    background-color: #59658a;
+    position: relative;
+    z-index: 100;
+    padding: 10px 0;
+    border-top: 1px dashed #58755f;
+}
+
+ul > li > ol > li:hover {
+    background-color: #c3b79b;
+}
+
+ul > li > ol > li:hover > a {
+    color: #5d6140;
+}

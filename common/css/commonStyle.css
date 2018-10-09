@@ -1,0 +1,55 @@
+@media all {
+
+    a {
+        color: white;
+    }
+
+    address {
+        font-size: 1.3em;
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    body {
+        position: relative;
+        background: black url(../../img/code_background_transparent.png) no-repeat fixed;
+        background-size: cover;
+        color: white;
+    }
+
+    footer, .mainHeader {
+        width: 80%;
+        margin: auto;
+        font-variant: small-caps;
+    }
+
+    h3 {
+        text-decoration: underline;
+        font-size: 1.2em;
+    }
+
+    h4 {
+        font-size: 1.3em;
+        font-style: italic;
+    }
+
+    section {
+        margin: auto;
+        font-size: 1.2em;
+        line-height: 1.3em;
+        width: 80%;
+        display: block;
+    }
+
+    section article {
+        font-size: 0.9em;
+        text-align: justify;
+    }
+}
+
+@media print {
+    body {
+        background-color: white !important;
+        color: black !important;
+    }
+}

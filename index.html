@@ -7,13 +7,26 @@
     <meta name="description" content="This site provides programming languages comparison,
         description, tricks, trivia and much more">
     <title>Programming polyglot</title>
+
+    <link rel="stylesheet" href="common/css/commonStyle.css" type="text/css">
+    <link rel="stylesheet" href="css/mainStyle.css" type="text/css">
+    <style>
+        figcaption > a {
+            font-size: 10pt;
+            text-decoration: none;
+        }
+
+        figcaption > a:hover {
+            font-size: 150%;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <figure>
+    <header class="mainHeader">
+        <figure id="logoFig">
             <a href="ftp://sunsite.icm.edu.pl/pub/CPAN/ls-lR.gz" download>
                 <img src="img/programming_polyglot.jpeg" width="480" height="270"
-                    alt="Programming polyglot">
+                     alt="Programming polyglot">
             </a>
             <figcaption>Source:
                 <a href="https://blog.lelonek.me/be-a-polyglot-programmer-6e7423916ed8">
@@ -24,8 +37,9 @@
         <h1><em>Welcome to programming polyglot online!</em></h1>
         <form method="get" action="https://google.com/search?q=" target="_blank" autocomplete="on">
             <p>
-                <label> Google search:
-                    <input name="q" type="search" placeholder="Google search">
+                <label style="font-family: tahoma, helvetica, sans-serif; ">
+                    <span style="text-decoration: underline; font-size: 1.25em;">Google search:</span>
+                    <input id="mainGSearch" name="q" type="search" placeholder="Google search">
                 </label>
                 <input name="submit" type="submit" value="Search">
             </p>
@@ -38,7 +52,7 @@
         <nav>
             <ul>
                 <li><a href="#aboutSite">About this page</a></li>
-                <li>Languages sections
+                <li><span class="liCont">Languages sections</span>
                     <ol>
                         <li><a href="languages/cpp.html">C++ section</a></li>
                         <li><a href="languages/c.html">C section</a></li>
@@ -47,7 +61,7 @@
                         <li><a href="languages/comparison.html">Languages comparison</a></li>
                     </ol>
                 </li>
-                <li>Wikipedia
+                <li><span class="liCont">Wikipedia</span>
                     <ol>
                         <li><a href="https://en.wikipedia.org/wiki/C%2B%2B">C++ Wikipedia</a></li>
                         <li><a href="https://en.wikipedia.org/wiki/C_(programming_language)">C Wikipedia</a></li>
@@ -68,7 +82,7 @@
             This page provides information about few popular programming languages and theirs applications.
         </p>
         <article>
-            <h4 align="right">What is programming language?</h4>
+            <h4>What is programming language?</h4>
             <p>
                 A programming language is a formal language, which comprises a set of instructions used to produce various kinds of output.
                 Programming languages are used to create programs that implement specific algorithms. Most programming languages consist of
