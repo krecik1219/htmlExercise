@@ -6,84 +6,88 @@
         programming languages, c++, python, c, java, computer science, computing">
     <meta name="description" content="This site provides table with languages comparison">
     <title>Languages comparison</title>
+
+    <link rel="stylesheet" href="css/comparsionStyle.css" type="text/css">
 </head>
 <body>
-    <table border="1">
-        <caption>
-            <strong>Languages comparison</strong>
-        </caption>
-        <thead>
-            <tr>
-                <th>
-                    <table border="1" align="center" cellspacing="4px" bgcolor="#ff7f50">
-                        <thead>
-                            <tr>
-                                <th>I</th>
-                                <th>am</th>
-                            </tr>
-                            <tr>
-                                <th>for</th>
-                                <th>nothing</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </th>
-                <th>Language</th>
-                <th>Object oriented</th>
-                <th>Typing</th>
-                <th>Compiled / Interpreted</th>
-                <th>Reflective</th>
-                <th>Memory management</th>
-                <th>Generic</th>
-                <th>Type inference</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td rowspan="4">
-                    <img src="../img/programming_polyglot.jpeg" alt="Java logo" width="288" height="162">
-                </td>
-                <td>C++</td>
-                <td>Yes</td>
-                <td>Static</td>
-                <td>Compiled</td>
-                <td>No</td>
-                <td>Manual - possible semi-automatic with smart pointers</td>
-                <td>Templates - causes extra code generation</td>
-                <td>Using auto specifier since C++11</td>
-            </tr>
-            <tr>
-                <td>C</td>
-                <td>No</td>
-                <td>Static</td>
-                <td>Compiled</td>
-                <td>No</td>
-                <td>Manual</td>
-                <td>No. Overcome with void pointer</td>
-                <td>No</td>
-            </tr>
-            <tr>
-                <td>Java</td>
-                <td>Yes</td>
-                <td>Static</td>
-                <td>Compiled</td>
-                <td>Yes</td>
-                <td>Garbage collector</td>
-                <td>Yes</td>
-                <td>Using var specifier since Java10</td>
-            </tr>
-            <tr>
-                <td>Python</td>
-                <td>Yes</td>
-                <td>Dynamic</td>
-                <td>Interpreted</td>
-                <td>Yes</td>
-                <td>Garbage collector</td>
-                <td>Duck typing</td>
-                <td>N/A</td>
-            </tr>
-        </tbody>
-    </table>
+    <div id="tableWrapper">
+        <table border="1">
+            <caption>
+                <strong>Languages comparison</strong>
+            </caption>
+            <thead>
+                <tr>
+                    <th>
+                        <table border="1" align="center" cellspacing="4px" bgcolor="#ff7f50">
+                            <thead>
+                                <tr>
+                                    <th>I</th>
+                                    <th>am</th>
+                                </tr>
+                                <tr>
+                                    <th>for</th>
+                                    <th>nothing</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </th>
+                    <th>Language</th>
+                    <th>Object oriented</th>
+                    <th>Typing</th>
+                    <th>Compiled / Interpreted</th>
+                    <th>Reflective</th>
+                    <th>Memory management</th>
+                    <th>Generic</th>
+                    <th>Type inference</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="4">
+                        <img src="../img/programming_polyglot.jpeg" alt="Java logo" width="288" height="162">
+                    </td>
+                    <td>C++</td>
+                    <td>Yes</td>
+                    <td>Static</td>
+                    <td>Compiled</td>
+                    <td>No</td>
+                    <td>Manual - possible semi-automatic with smart pointers</td>
+                    <td>Templates - causes extra code generation</td>
+                    <td>Using auto specifier since C++11</td>
+                </tr>
+                <tr>
+                    <td>C</td>
+                    <td>No</td>
+                    <td>Static</td>
+                    <td>Compiled</td>
+                    <td>No</td>
+                    <td>Manual</td>
+                    <td>No. Overcome with void pointer</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>Java</td>
+                    <td>Yes</td>
+                    <td>Static</td>
+                    <td>Compiled</td>
+                    <td>Yes</td>
+                    <td>Garbage collector</td>
+                    <td>Yes</td>
+                    <td>Using var specifier since Java10</td>
+                </tr>
+                <tr>
+                    <td>Python</td>
+                    <td>Yes</td>
+                    <td>Dynamic</td>
+                    <td>Interpreted</td>
+                    <td>Yes</td>
+                    <td>Garbage collector</td>
+                    <td>Duck typing</td>
+                    <td>N/A</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <p>
         <a href="../index.html">Back to home page</a>
     </p>

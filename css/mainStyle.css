@@ -123,3 +123,7 @@ ul > li > ol > li:hover {
 ul > li > ol > li:hover > a {
     color: #5d6140;
 }
+
+:target {
+    background-color: rgba(31, 148, 60, 0.23);
+}

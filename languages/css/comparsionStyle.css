@@ -1,0 +1,38 @@
+body {
+    background-color: rgba(0, 0, 255, 0.5);
+    color: rgb(214, 96, 57)
+}
+
+#tableWrapper {
+    margin: auto;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+    background-color: #4b1f75;
+    font-size: 1.15em;
+    border: medium groove cadetblue;
+}
+
+table > thead > tr > th:first-child {
+    font-size: 1.5em;
+    font-family: Norasi, serif;
+    font-variant: small-caps;
+}
+
+table table {
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 80%;
+    height: 80%;
+}
+
+table > caption {
+    font-family: Arial, Likhan, serif;
+    font-style: oblique;
+    font-weight: bold;
+    font-size: 2.4em;
+    margin-bottom: 1.3em;
+}

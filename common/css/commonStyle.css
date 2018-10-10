@@ -4,6 +4,14 @@
         color: white;
     }
 
+    a:active {
+        background-color: lawngreen;
+    }
+
+    a:link {
+        font-style: italic;
+    }
+
     address {
         font-size: 1.3em;
         font-weight: bold;

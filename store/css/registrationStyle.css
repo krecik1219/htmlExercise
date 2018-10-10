@@ -1,0 +1,38 @@
+body {
+    background-color: darksalmon;
+}
+
+:checked + #agreementText {
+    color: lime;
+}
+
+label {
+    font-size: 1.2em;
+}
+
+input:focus {
+    background-color: antiquewhite;
+}
+
+input:optional {
+    padding: 0.1em;
+    border-style: inset;
+    border-width: thick;
+}
+
+[type=submit] {
+    width: 10em;
+    height: 4em;
+    margin-right: 3em;
+}
+
+[type=reset] {
+      width: 10em;
+      height: 4em;
+}
+
+input:required {
+    padding: 0.1em;
+    border-width: thick;
+    border-style: dashed;
+}
