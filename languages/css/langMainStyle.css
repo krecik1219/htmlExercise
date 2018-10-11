@@ -1,6 +1,41 @@
+#absRightTxt {
+    position: absolute;
+    right: 5%;
+    top: 40%;
+}
+
 .mainHeader {
     margin-left: auto;
     margin-right: auto;
     width: fit-content;
     height: fit-content;
+}
+
+#goUpBtn {
+    position: fixed;
+    right: 2%;
+    bottom: 5%;
+    width: fit-content;
+    height: fit-content;
+    background-color: rgba(152, 255, 28, 0.73);
+    color: sandybrown;
+    font-size: 1.4em;
+}
+
+#goUpBtn a {
+    text-decoration: none;
+}
+
+#langTitle {
+    display: block;
+    position: -webkit-sticky;
+    position: sticky;
+    text-align: center;
+    top: 0;
+}
+
+#navigation ul {
+    display: block;
+    position: relative;
+    left: 2%;
 }
