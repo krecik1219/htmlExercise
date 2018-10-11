@@ -124,6 +124,30 @@ ul > li > ol > li:hover > a {
     color: #5d6140;
 }
 
+ul > li:hover > ol > li > ul {
+    list-style-type: none;
+    margin: 0 0 0 0;
+    padding: 0;
+    height: 40px;
+    display: none;
+    float: left;
+    position: absolute;
+    left: 100%;
+    bottom: 50%;
+}
+
+ul > li > ol > li:hover > ul {
+    display: block;
+}
+
+ul > li > ol > li > ul > li {
+    background-color: #59658a;
+    position: relative;
+    z-index: 200;
+    padding: 10px 0;
+    border-top: 1px dashed #58755f;
+}
+
 :target {
     background-color: rgba(31, 148, 60, 0.23);
 }
