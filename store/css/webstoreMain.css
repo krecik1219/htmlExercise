@@ -1,6 +1,26 @@
 body {
-    background: url(../img/coming_soon.png) repeat top left;
-    background-size: 20%;
+    background-image: url(../img/coming_soon.png), radial-gradient(circle, rgba(112, 122, 208, 0.33), rgba(208, 69, 141, 0.33));
+    background-size: 20%, 100%;
+    background-position: top left, center;
+    background-repeat: repeat, repeat-y;
     font-size: 3em;
     text-align: center;
+    color: black;
+    -webkit-text-stroke: 2px dimgray;
+}
+
+#cover {
+    position: relative;
+    margin: 0 auto;
+}
+
+#cover img {
+    position: absolute;
+    left: 0;
+    -webkit-transition: opacity 4s ease-in-out;
+    transition: opacity 4s ease-in-out;
+}
+
+#cover img.top:hover {
+    opacity:0;
 }

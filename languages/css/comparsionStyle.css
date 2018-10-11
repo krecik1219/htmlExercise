@@ -1,10 +1,52 @@
 body {
-    background-color: rgba(0, 0, 255, 0.5);
-    color: rgb(214, 96, 57)
+
+    color: rgb(214, 96, 57);
+    background: linear-gradient(to right, #2c4a75, #4b3a75, #4e3a75);
+}
+
+#progPol {
+    -webkit-animation: skew 3s ease-in;
+    -moz-animation: skew 3s ease-in;
+    animation: skew 3s ease-in;
+}
+
+@-webkit-keyframes skew {
+    from { -webkit-transform: skewX(0deg); }
+    25% { -webkit-transform: skewX(45deg); }
+    50% { -webkit-transform: skewX(0); }
+    75% { -webkit-transform: skewX(-45deg); }
+    to { -webkit-transform: skewX(0); }
+}
+
+@-moz-keyframes skew {
+    from { -webkit-transform: skewX(0deg); }
+    25% { -webkit-transform: skewX(45deg); }
+    50% { -webkit-transform: skewX(0); }
+    75% { -webkit-transform: skewX(-45deg); }
+    to { -webkit-transform: skewX(0); }
+}
+
+@keyframes skew {
+    from { -webkit-transform: skewX(0deg); }
+    25% { -webkit-transform: skewX(45deg); }
+    50% { -webkit-transform: skewX(0); }
+    75% { -webkit-transform: skewX(-45deg); }
+    to { -webkit-transform: skewX(0); }
 }
 
 #tableWrapper {
     margin: auto;
+    border: 0.3em solid cadetblue;
+    padding: 0.5em;
+    border-radius: 2em;
+    box-shadow: -0.5em 1em 1em #4b1f75;
+    background: url(../img/rust_mozilla.png) no-repeat;
+    background-size: 10%;
+    background-origin: padding-box;
+}
+
+table caption {
+    text-shadow: -0.5em 0.3em 0.7em greenyellow;
 }
 
 table {
@@ -14,6 +56,7 @@ table {
     background-color: #4b1f75;
     font-size: 1.15em;
     border: medium groove cadetblue;
+    border-radius: 1em;
 }
 
 table > thead > tr > th:first-child {

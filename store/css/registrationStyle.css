@@ -2,6 +2,13 @@ body {
     background-color: darksalmon;
 }
 
+#container {
+    height: fit-content;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 :checked + #agreementText {
     color: lime;
 }
@@ -33,6 +40,13 @@ input:optional {
 
 input:required {
     padding: 0.1em;
-    border-width: thick;
-    border-style: dashed;
+    border: thick dashed;
+}
+
+#regFormContainer {
+    border: 3em solid;
+    -webkit-border-image: url(../img/border_img.png) 15% stretch;
+    -moz-border-image: url(../img/border_img.png) 15% stretch;
+    -o-border-image: url(../img/border_img.png) 15% stretch;
+    border-image: url(../img/border_img.png) 15% stretch;
 }

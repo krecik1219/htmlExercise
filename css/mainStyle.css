@@ -18,6 +18,10 @@ form[action="https://google.com/search?q="] {
     font-size: 18px;
 }
 
+h1 {
+    font-family: 'Kodchasan', sans-serif;
+}
+
 hr {
     clear: both;
 }
@@ -25,6 +29,40 @@ hr {
 #logoFig {
     position: relative;
     left: 20%;
+}
+
+#logoImg {
+   position: relative;
+   -webkit-animation: movingImage linear 5s 1s 2 alternate;
+   -moz-animation: movingImage linear 5s 1s 2 alternate;
+   animation: movingImage linear 5s 2 1s alternate;
+}
+
+@-webkit-keyframes movingImage
+{
+   0%   {opacity: 0; left: 50px; top: 0px;}
+   25%  {opacity: 1; left: 0px; top:5 0px;}
+   50%  {opacity: 0; left: 50px; top: 100px;}
+   75%  {opacity: 1; left: 100px; top: 50px;}
+   100% {opacity: 0; left: 50px; top: 0px;}
+}
+
+@-moz-keyframes movingImage
+{
+   0%   {opacity: 0; left: 50px; top: 0px;}
+   25%  {opacity: 1; left: 0px; top:5 0px;}
+   50%  {opacity: 0; left: 50px; top: 100px;}
+   75%  {opacity: 1; left: 100px; top: 50px;}
+   100% {opacity: 0; left: 50px; top: 0px;}
+}
+
+@keyframes movingImage
+{
+   0%   {opacity: 0; left: 50px; top: 0px;}
+   25%  {opacity: 1; left: 0px; top: 50px;}
+   50%  {opacity: 0; left: 50px; top: 100px;}
+   75%  {opacity: 1; left: 100px; top: 50px;}
+   100% {opacity: 0; left: 50px; top: 0px;}
 }
 
 #mainGSearch {
@@ -57,7 +95,7 @@ hr {
 }
 
 nav {
-    background-color: rgb(83, 103, 91);
+    background-color: hsla(152, 27%, 42%, 0.9);
     border-bottom: 0.1em solid #2a3a75;
     border-top: 0.1em solid #2a3a75;
     text-align: center;
