@@ -4,6 +4,89 @@
     top: 40%;
 }
 
+.flexbox {
+    position: relative;
+    width: 600px;
+    height: 420px;
+    display: -webkit-box;
+    display: -box;
+    -webkit-box-orient: horizontal;
+    box-orient: horizontal;
+}
+
+.flexbox img {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.flexbox > div:hover > img {
+    position: static;
+    top: auto;
+    bottom: auto;
+}
+
+.flexbox > div {
+    -webkit-transition: 1s ease-out;
+    transition: 1s ease-out;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border: 2px solid black;
+    width: 120px;
+    margin: 10px -10px 10px 0px;
+    padding: 20px 20px 20px 20px;
+    box-shadow: 10px 10px 10px dimgrey;
+}
+
+.flexbox > div:nth-child(1) {
+    background-color: lightgrey;
+}
+.flexbox > div:nth-child(2) {
+    background-color: lightgrey;
+}
+.flexbox > div:nth-child(3) {
+    background-color: lightgrey;
+}
+.flexbox > div:nth-child(4) {
+    background-color: lightgrey;
+}
+
+.flexbox > div:hover {
+    width: 200px;
+    font-weight: bold;
+}
+
+.flexbox > div:nth-child(1):hover {
+    background-color: royalblue;
+}
+.flexbox > div:nth-child(2):hover {
+    background-color: crimson;
+}
+.flexbox > div:nth-child(3):hover {
+    background-color: crimson;
+}
+.flexbox > div:nth-child(4):hover {
+    background-color: darkgreen;
+}
+
+.flexbox p {
+    color: black;
+    font-size: 0.7em;
+    height: 250px;
+    display: none;
+    overflow: hidden;
+    margin-bottom: 1em;
+    font-family: "Rosario", sans-serif;
+}
+.flexbox > div:hover p {
+    display: inline;
+    width: 200px;
+    font-weight: bold;
+}
+
+
 #langLogo {
     margin: 80px;
    -webkit-transition: -webkit-transform 4s;
