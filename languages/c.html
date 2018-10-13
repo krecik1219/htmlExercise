@@ -83,6 +83,34 @@
     </section>
     <hr>
 
+    <section id="tricksTips">
+        <h3><em>C tricks and tips</em></h3>
+        <div class="flexbox">
+            <div><img src="img/c_logo_icon.png" alt="C small logo">
+                <p>
+                    You can inject assembler code in C code to make performance critical sections
+                    of your code even better or to smarty use some properties of some commands
+                    like time duration of them.
+                </p>
+            </div>
+            <div><img src="img/c_logo_icon.png" alt="C small logo">
+                <p>
+                    In embedded applications there may be no place to use "expensive" data structures
+                    eg. map, you can define enum which values (integers) will be indices of some array,
+                    then you can in elegant way iterate over enum values. (Check C enums as counters)
+                </p>
+            </div>
+            <div><img src="img/c_logo_icon.png" alt="C small logo">
+                <p>
+                    If there is memory restriction and part of your code is used to do something and then
+                    allocated structures won't be used anymore there is a trick. Allocate variables in
+                    new scope, make actions and then allocated memory will be freed when exiting scope.
+                </p>
+            </div>
+        </div>
+    </section>
+    <hr>
+
     <section id="mainC">
         <h3>C main function template: </h3>
         <a href="files/main.c" download>main.c</a>

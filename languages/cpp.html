@@ -99,12 +99,19 @@
             </div>
             <div><img src="img/cpp_logo_icon.png" alt="C++ small logo">
                 <p>
-
+                    Auto specifier allows you to type less, but there is a trap.
+                    std::vector&lt;bool&gt; element access with operator [] or method at(_)
+                    returns reference to underlying type. For bool type there is special
+                    treatment to optimize memory - auto b = v[2]; will return special
+                    bool reference container, which will lead you to undefined behaviour later.
+                    Instead just type bool b = v[2];
                 </p>
             </div>
             <div><img src="img/cpp_logo_icon.png" alt="C++ small logo">
                 <p>
-
+                    With C++11 move semantics it is now more efficient to store objects in containers
+                    than years ago. Consider storing objects in containers with defined move semantics operators
+                    instead of storing pointers to those objects - this is less error prone.
                 </p>
             </div>
         </div>

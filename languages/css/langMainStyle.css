@@ -6,7 +6,7 @@
 
 .flexbox {
     position: relative;
-    width: 600px;
+    width: 900px;
     height: 420px;
     display: -webkit-box;
     display: -box;
@@ -16,9 +16,7 @@
 
 .flexbox img {
     display: block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
+    position: relative;
     margin: auto;
 }
 
@@ -34,7 +32,7 @@
     -webkit-border-radius: 10px;
     border-radius: 10px;
     border: 2px solid black;
-    width: 120px;
+    width: 200px;
     margin: 10px -10px 10px 0px;
     padding: 20px 20px 20px 20px;
     box-shadow: 10px 10px 10px dimgrey;
@@ -49,12 +47,9 @@
 .flexbox > div:nth-child(3) {
     background-color: lightgrey;
 }
-.flexbox > div:nth-child(4) {
-    background-color: lightgrey;
-}
 
 .flexbox > div:hover {
-    width: 200px;
+    width: 300px;
     font-weight: bold;
 }
 
@@ -65,9 +60,6 @@
     background-color: crimson;
 }
 .flexbox > div:nth-child(3):hover {
-    background-color: crimson;
-}
-.flexbox > div:nth-child(4):hover {
     background-color: darkgreen;
 }
 
