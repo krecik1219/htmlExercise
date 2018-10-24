@@ -55,8 +55,12 @@ table {
     margin-top: 1em;
     background-color: #4b1f75;
     font-size: 1.15em;
-    border: medium groove cadetblue;
+    border: 2px groove cadetblue;
     border-radius: 1em;
+}
+
+td, th {
+    border: 2px groove cadetblue ;
 }
 
 table > thead > tr > th:first-child {
@@ -70,6 +74,16 @@ table table {
     margin-bottom: auto;
     width: 80%;
     height: 80%;
+    border-spacing: 4px;
+    background-color: bisque;
+}
+
+table table td {
+    border: none;
+}
+
+table table th {
+    border: none;
 }
 
 table > caption {
