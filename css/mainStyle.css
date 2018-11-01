@@ -104,7 +104,7 @@ nav {
     color: aquamarine;
 }
 
-ul {
+nav ul {
     padding: 0;
     margin: 0;
     list-style-type: none;
@@ -113,28 +113,28 @@ ul {
     display: inline-block;
 }
 
-ul a, .liCont {
+nav ul a, .liCont {
     text-decoration: none;
     display: block;
     margin-top: 5px;
 }
 
-ul > li {
+nav ul > li {
     float: left;
     width: 150px;
     height: 40px;
     border-right: 1px dashed #4b1f75;
 }
 
-ul > li:FIRST-CHILD {
+nav ul > li:FIRST-CHILD {
     border-left: 1px dashed #896f96;
 }
 
-ul > li:hover {
+nav ul > li:hover {
     background-color: #7d7a91;
 }
 
-ul > li > ol {
+nav ul > li > ol {
     list-style-type: none;
     margin: 8px 0 0 0;
     padding: 0;
@@ -142,11 +142,11 @@ ul > li > ol {
     display: none;
 }
 
-ul > li:hover > ol {
+nav ul > li:hover > ol {
     display: block;
 }
 
-ul > li > ol > li {
+nav ul > li > ol > li {
     background-color: #59658a;
     position: relative;
     z-index: 100;
@@ -154,15 +154,15 @@ ul > li > ol > li {
     border-top: 1px dashed #58755f;
 }
 
-ul > li > ol > li:hover {
+nav ul > li > ol > li:hover {
     background-color: #c3b79b;
 }
 
-ul > li > ol > li:hover > a {
+nav ul > li > ol > li:hover > a {
     color: #5d6140;
 }
 
-ul > li:hover > ol > li > ul {
+nav ul > li:hover > ol > li > ul {
     list-style-type: none;
     margin: 0 0 0 0;
     padding: 0;
@@ -174,11 +174,11 @@ ul > li:hover > ol > li > ul {
     bottom: 50%;
 }
 
-ul > li > ol > li:hover > ul {
+nav ul > li > ol > li:hover > ul {
     display: block;
 }
 
-ul > li > ol > li > ul > li {
+nav ul > li > ol > li > ul > li {
     background-color: #59658a;
     position: relative;
     z-index: 200;

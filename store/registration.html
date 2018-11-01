@@ -17,13 +17,13 @@
         <h3>Fill up the form and register for free</h3>
     </header>
     <div id="regFormContainer">
-        <form method="post" action="#" autocomplete="on">
-            <p>
+        <form id="registerForm" method="post" action="#" autocomplete="on">
+            <p id="name">
                 <label>Name:
                     <input id="nameInput" name="name" type="text" placeholder="Name" autofocus required>
                 </label>
             </p>
-            <p>
+            <p id="surname">
                 <label>Surname:
                     <input id="surnameInput" name="surname" type="text" placeholder="Surname" required>
                 </label>
@@ -113,6 +113,15 @@
             <input id="registerSubmit" name="submit" type="submit">
             <input name="reset" type="reset">
         </form>
+    </div>
+    <div id="preferences">
+        <label>Font style
+            <select id="fontSelect">
+                <option selected>sans-serif</option>
+                <option>Arial</option>
+                <option>Calibri</option>
+            </select>
+        </label>
     </div>
     <p>
         <a href="../index.html">Back to home page</a>
