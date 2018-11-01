@@ -4,6 +4,12 @@ body {
     background: linear-gradient(to right, #2c4a75, #4b3a75, #4e3a75);
 }
 
+#goToRndLang {
+    position: absolute;
+    left: 85%;
+    top: 10%;
+}
+
 #progPol {
     -webkit-animation: skew 3s ease-in;
     -moz-animation: skew 3s ease-in;

@@ -8,9 +8,11 @@
     <title>Languages comparison</title>
 
     <link rel="stylesheet" href="css/comparsionStyle.css" type="text/css">
+    <script src="js/comparsion.js" type="text/javascript"></script>
 </head>
 <body>
     <div id="tableWrapper">
+        <button id="goToRndLang">Random lang</button>
         <table>
             <caption>
                 <strong>Languages comparison</strong>
@@ -46,7 +48,7 @@
                     <td rowspan="4">
                         <img id="progPol" src="../img/programming_polyglot.jpeg" alt="Programming languages names" width="288" height="162">
                     </td>
-                    <td>C++</td>
+                    <td class="langName">C++</td>
                     <td>Yes</td>
                     <td>Static</td>
                     <td>Compiled</td>
@@ -56,7 +58,7 @@
                     <td>Using auto specifier since C++11</td>
                 </tr>
                 <tr>
-                    <td>C</td>
+                    <td class="langName">C</td>
                     <td>No</td>
                     <td>Static</td>
                     <td>Compiled</td>
@@ -66,7 +68,7 @@
                     <td>No</td>
                 </tr>
                 <tr>
-                    <td>Java</td>
+                    <td class="langName">Java</td>
                     <td>Yes</td>
                     <td>Static</td>
                     <td>Compiled</td>
@@ -76,7 +78,7 @@
                     <td>Using var specifier since Java10</td>
                 </tr>
                 <tr>
-                    <td>Python</td>
+                    <td class="langName">Python</td>
                     <td>Yes</td>
                     <td>Dynamic</td>
                     <td>Interpreted</td>

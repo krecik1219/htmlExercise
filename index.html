@@ -21,6 +21,7 @@
             font-size: 150%;
         }
     </style>
+    <script src="js/mainScript.js" type="text/javascript"></script>
 </head>
 <body>
     <header class="mainHeader">
@@ -55,28 +56,21 @@
                 <li><a href="#aboutSite">About this page</a></li>
                 <li><span class="liCont">Languages sections</span>
                     <ol>
-                        <li><a href="languages/cpp.html">C++ section</a>
-                            <ul>
-                                <li><a href="languages/cpp.html#aboutCpp">About C++</a></li>
-                                <li><a href="languages/cpp.html#appsCpp">C++ applications</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="languages/c.html">C section</a>
-                            <ul>
-                                <li><a href="languages/c.html#aboutC">About C</a></li>
-                                <li><a href="languages/c.html#appsC">C applications</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="languages/java.html">Java section</a>
-                            <ul>
-                                <li><a href="languages/java.html#aboutJava">About Java</a></li>
-                                <li><a href="languages/java.html#appsJava">Java applications</a></li>
-                            </ul></li>
-                        <li><a href="languages/python.html">Python section</a>
-                            <ul>
-                                <li><a href="languages/python.html#aboutPython">About Python</a></li>
-                                <li><a href="languages/python.html#appsPython">Python applications</a></li>
-                            </ul></li>
+                        <script type="text/javascript">
+                            var langs = ["C++", "C", "Java", "Python"];
+                            for(var i = 0; i < langs.length; i++)
+                            {
+                                var lang = langs[i];
+                                var page = lang.toLowerCase() + '.html';
+                                page = page.replace("c++", "cpp");
+                                document.writeln('<li><a href=\"languages/' + page + '\">' + lang + ' section</a>');
+                                document.writeln('<ul>');
+                                document.writeln('<li><a href="languages/' + page + '#aboutCpp">About ' + lang + '</a></li>');
+                                document.writeln('<li><a href="languages/' + page + '#appsCpp">' + lang + ' applications</a></li>');
+                                document.writeln('</ul>');
+                                document.writeln('</li>');
+                            }
+                        </script>
                         <li><a href="languages/comparison.html">Languages comparison</a></li>
                     </ol>
                 </li>
@@ -89,7 +83,7 @@
                     </ol>
                 </li>
                 <li><a href="store/webstore.html">Webstore</a></li>
-                <li><a href="#contactInfo">Contact information</a></li>
+                <li id="contactLI"><a href="#contactInfo">Contact information</a></li>
             </ul>
         </nav>
     </section>
