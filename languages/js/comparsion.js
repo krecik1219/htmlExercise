@@ -1,12 +1,10 @@
-window.onload = setupPage;
+window.onload = function()
+                {
+                    langRndBtn = document.getElementById("goToRndLang");
+                    langRndBtn.addEventListener("click", handleRndLangBtnClick);
+                };
 
 var langRndBtn = null;
-
-function setupPage()
-{
-    langRndBtn = document.getElementById("goToRndLang");
-    langRndBtn.addEventListener("click", handleRndLangBtnClick);
-}
 
 function handleRndLangBtnClick()
 {
