@@ -24,7 +24,14 @@ function setupPage()
     document.getElementById("surnameInput").addEventListener("focus", handleFormItemFocus);
     document.getElementById("nameInput").addEventListener("blur", handleFormItemBlur);
     document.getElementById("surnameInput").addEventListener("blur", handleFormItemBlur);
+    document.addEventListener('keypress', handleKeyPress);
     displayHelp(document.activeElement.id);
+}
+
+function handleKeyPress(e)
+{
+    if (e.keyCode === 97)
+        setBackgroundColor("#8e0924");
 }
 
 function sendRegisterForm(e)
@@ -203,7 +210,7 @@ function displayHelp(inputName)
     var help = document.createElement("p");
     help.id = "help";
     help.innerText = inputHelps[inputName];
-    help.style['color'] = "#20d1ff";
+    help.style['color'] = "#198faf";
     help.style['font-size'] = "0.7em";
     var currentNode = document.getElementById(inputName);
     currentNode.parentNode.insertBefore(help, currentNode.nextSibling);
