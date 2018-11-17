@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,12 +21,20 @@
         <h3>Fill up the form and register for free</h3>
     </header>
     <div id="regFormContainer">
-        <form id="registerForm" method="post" action="#" autocomplete="on">
+        <form id="registerForm" method="post" action="register.php" autocomplete="on">
             <p id="name">
                 <label>Name:
                     <input id="nameInput" name="name" type="text" placeholder="Name" autofocus required>
                 </label>
             </p>
+            <?php
+                if(isset($_SESSION["errors"]["name"]))
+                {
+                    for($i = 0; $i < count($_SESSION["errors"]["name"]); $i++)
+                        echo('<p style="color: red;">'.$_SESSION["errors"]["name"][$i].'</p>');
+                    unset($_SESSION["errors"]["name"]);
+                }
+            ?>
             <p id="surname">
                 <label>Surname:
                     <input id="surnameInput" name="surname" type="text" placeholder="Surname" required>
@@ -33,17 +45,41 @@
                     <input name="email" type="email" placeholder="sample@mail.com" required>
                 </label>
             </p>
+            <?php
+            if(isset($_SESSION["errors"]["email"]))
+            {
+                for($i = 0; $i < count($_SESSION["errors"]["email"]); $i++)
+                    echo('<p style="color: red;">'.$_SESSION["errors"]["email"][$i].'</p>');
+                unset($_SESSION["errors"]["email"]);
+            }
+            ?>
             <p>
                 <label>Mobile number:
                     <input name="mobileNum" type="tel" placeholder="+48 723 916 624"
                            pattern="^([\+]?\d{2}\s)?(\d{3}\s\d{3}\s\d{3})$">
                 </label>
             </p>
+            <?php
+            if(isset($_SESSION["errors"]["mobileNum"]))
+            {
+                for($i = 0; $i < count($_SESSION["errors"]["mobileNum"]); $i++)
+                    echo('<p style="color: red;">'.$_SESSION["errors"]["mobileNum"][$i].'</p>');
+                unset($_SESSION["errors"]["mobileNum"]);
+            }
+            ?>
             <p>
                 <label>Date of birth:
                     <input name="birthDate" type="date">
                 </label>
             </p>
+            <?php
+            if(isset($_SESSION["errors"]["birthDate"]))
+            {
+                for($i = 0; $i < count($_SESSION["errors"]["birthDate"]); $i++)
+                    echo('<p style="color: red;">'.$_SESSION["errors"]["birthDate"][$i].'</p>');
+                unset($_SESSION["errors"]["birthDate"]);
+            }
+            ?>
             <p>
                 <label>Theme color:
                     <input name="themeColor" type="color" value="#9ae7fa">
@@ -110,6 +146,14 @@
                 <input id="captchaFake" name="captchaFake" type="text" required>
             </label>
             <br>
+            <?php
+            if(isset($_SESSION["errors"]["captchaFake"]))
+            {
+                for($i = 0; $i < count($_SESSION["errors"]["captchaFake"]); $i++)
+                    echo('<p style="color: red;">'.$_SESSION["errors"]["captchaFake"][$i].'</p>');
+                unset($_SESSION["errors"]["captchaFake"]);
+            }
+            ?>
             <input id="registerSubmit" name="submit" type="submit">
             <input name="reset" type="reset">
         </form>
