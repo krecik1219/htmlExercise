@@ -9,7 +9,7 @@ define("EPSILON", 0.001);
 
 $errors = array();
 
-if(empty($_POST["name"]))
+if(!isset($_POST["name"]) or empty($_POST["name"]))
     $errors["name"][] = "Name can't be empty";
 else
 {
@@ -17,7 +17,7 @@ else
         $errors["name"][] = "Name must be between 2 and 15 characters";
 }
 
-if(empty($_POST["email"]))
+if(!isset($_POST["email"]) or empty($_POST["email"]))
     $errors["email"][] = "Email can't be empty";
 else
 {
@@ -26,7 +26,7 @@ else
         $errors["email"][] = "Not valid email - missing '@' character";
 }
 
-if(!empty($_POST["mobileNum"]))
+if(isset($_POST["mobileNum"]) and !empty($_POST["mobileNum"]))
 {
     if(!preg_match("/^([\+]?\d{2}\s)?(\d{3}\s\d{3}\s\d{3})$/", $_POST["mobileNum"]))
         $errors["mobileNum"][] = "Not valid phone number. Please follow pattern: (+99) 999 999 999";
@@ -34,7 +34,7 @@ if(!empty($_POST["mobileNum"]))
 else
     $_POST["mobileNum"] = null;
 
-if(empty($_POST["captchaFake"]))
+if(!isset($_POST["captchaFake"]) or empty($_POST["captchaFake"]))
     $errors["captchaFake"][] = "Please fill captcha can't be empty";
 else
 {
@@ -43,7 +43,7 @@ else
         $errors["captchaFake"][] = "$answer is not correct answer";
 }
 
-if(empty($_POST["birthDate"]))
+if(!isset($_POST["birthDate"]) or empty($_POST["birthDate"]))
     $errors["birthDate"][] = "Please provide your birth date";
 else
 {
@@ -79,7 +79,7 @@ if(count($errors) > 0)
 
 require_once "../connect.php";
 
-$connection = @new mysqli($host, $db_user, $db_password, $db_name);
+$connection = new mysqli($host, $db_user, $db_password, $db_name);
 if($connection->connect_errno!=0)  // check if any error occured when connecting
     die("Sorry, we had an error during database connection ".$connection->connect_errno);
 

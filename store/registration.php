@@ -24,7 +24,7 @@
         <form id="registerForm" method="post" action="register.php" autocomplete="on">
             <p id="name">
                 <label>Name:
-                    <input id="nameInput" name="name" type="text" placeholder="Name" autofocus required>
+                    <input id="nameInput" name="name" type="text" placeholder="Name" autofocus>
                 </label>
             </p>
             <?php
@@ -37,12 +37,12 @@
             ?>
             <p id="surname">
                 <label>Surname:
-                    <input id="surnameInput" name="surname" type="text" placeholder="Surname" required>
+                    <input id="surnameInput" name="surname" type="text" placeholder="Surname">
                 </label>
             </p>
                 <p>
                 <label>Email:
-                    <input name="email" type="email" placeholder="sample@mail.com" required>
+                    <input name="email" type="email" placeholder="sample@mail.com">
                 </label>
             </p>
             <?php
@@ -56,7 +56,7 @@
             <p>
                 <label>Mobile number:
                     <input name="mobileNum" type="tel" placeholder="+48 723 916 624"
-                           pattern="^([\+]?\d{2}\s)?(\d{3}\s\d{3}\s\d{3})$">
+                           >
                 </label>
             </p>
             <?php
