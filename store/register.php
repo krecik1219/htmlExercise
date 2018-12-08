@@ -2,11 +2,6 @@
 
 session_start();
 
-define("MIN_NAME_LENGTH", 2);
-define("MAX_NAME_LENGTH", 15);
-define("CAPTCHA_CORRECT_ANSWER", 2.5);
-define("EPSILON", 0.001);
-
 $errors = array();
 
 if(!isset($_POST["name"]) or empty($_POST["name"]))
@@ -77,7 +72,7 @@ if(count($errors) > 0)
     exit();
 }
 
-require_once "../connect.php";
+require_once "../Config.php";
 
 $connection = new mysqli($host, $db_user, $db_password, $db_name);
 if($connection->connect_errno!=0)  // check if any error occured when connecting

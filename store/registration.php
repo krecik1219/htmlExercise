@@ -1,5 +1,36 @@
 <?php
+
+require_once ("php_src/service/RegisterService.php");
+require_once ("php_src/UserDataValidator.php");
+require_once ("php_src/connection/UserConnection.php");
+
+use connection\UserConnection;
+use service\RegisterService;
+use validation\UserDataValidator;
+
     session_start();
+    $errors = array();
+    if($_SERVER["REQUEST_METHOD"] == "POST")
+    {
+        $userDataValidator = new UserDataValidator();
+        try
+        {
+            $userConnection = new UserConnection();
+            $registerService = new RegisterService($userDataValidator, $userConnection);
+            $registrationResult = $registerService->register($_POST["name"], $_POST["surname"], $_POST["email"],
+                $_POST["password1"], $_POST["password2"], $_POST["mobileNum"], $_POST["captchaFake"], $_POST["birthDate"]);
+            if(!$registrationResult)
+                $errors = $registerService->getErrors();
+            else
+            {
+                echo '"<p align=center>Registration successful!</p> "';
+                unset($errors);
+            }
+        } catch (Exception $e)
+        {
+            die("Sorry, we had an error: ".$e->getMessage());
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -21,18 +52,18 @@
         <h3>Fill up the form and register for free</h3>
     </header>
     <div id="regFormContainer">
-        <form id="registerForm" method="post" action="register.php" autocomplete="on">
+        <form id="registerForm" name="registerForm" method="post" autocomplete="on">
             <p id="name">
                 <label>Name:
                     <input id="nameInput" name="name" type="text" placeholder="Name" autofocus>
                 </label>
             </p>
             <?php
-                if(isset($_SESSION["errors"]["name"]))
+                if(isset($errors["name"]))
                 {
-                    for($i = 0; $i < count($_SESSION["errors"]["name"]); $i++)
-                        echo('<p style="color: red;">'.$_SESSION["errors"]["name"][$i].'</p>');
-                    unset($_SESSION["errors"]["name"]);
+                    for($i = 0; $i < count($errors["name"]); $i++)
+                        echo('<p style="color: red;">'.$errors["name"][$i].'</p>');
+                    unset($errors["name"]);
                 }
             ?>
             <p id="surname">
@@ -40,31 +71,56 @@
                     <input id="surnameInput" name="surname" type="text" placeholder="Surname">
                 </label>
             </p>
-                <p>
+            <p>
                 <label>Email:
                     <input name="email" type="email" placeholder="sample@mail.com">
                 </label>
             </p>
             <?php
-            if(isset($_SESSION["errors"]["email"]))
+            if(isset($errors["email"]))
             {
-                for($i = 0; $i < count($_SESSION["errors"]["email"]); $i++)
-                    echo('<p style="color: red;">'.$_SESSION["errors"]["email"][$i].'</p>');
-                unset($_SESSION["errors"]["email"]);
+                for($i = 0; $i < count($errors["email"]); $i++)
+                    echo('<p style="color: red;">'.$errors["email"][$i].'</p>');
+                unset($errors["email"]);
+            }
+            ?>
+            <p>
+                <label>Password:
+                    <input name="password1" type="password" required>
+                </label>
+            </p>
+            <?php
+            if(isset($errors["password1"]))
+            {
+                for($i = 0; $i < count($errors["password1"]); $i++)
+                    echo('<p style="color: red;">'.$errors["password1"][$i].'</p>');
+                unset($errors["password1"]);
+            }
+            ?>
+            <p>
+                <label>Repeat password:
+                    <input name="password2" type="password" required>
+                </label>
+            </p>
+            <?php
+            if(isset($errors["password2"]))
+            {
+                for($i = 0; $i < count($errors["password2"]); $i++)
+                    echo('<p style="color: red;">'.$errors["password2"][$i].'</p>');
+                unset($errors["password2"]);
             }
             ?>
             <p>
                 <label>Mobile number:
-                    <input name="mobileNum" type="tel" placeholder="+48 723 916 624"
-                           >
+                    <input name="mobileNum" type="tel" placeholder="+48 723 916 624">
                 </label>
             </p>
             <?php
-            if(isset($_SESSION["errors"]["mobileNum"]))
+            if(isset($errors["mobileNum"]))
             {
-                for($i = 0; $i < count($_SESSION["errors"]["mobileNum"]); $i++)
-                    echo('<p style="color: red;">'.$_SESSION["errors"]["mobileNum"][$i].'</p>');
-                unset($_SESSION["errors"]["mobileNum"]);
+                for($i = 0; $i < count($errors["mobileNum"]); $i++)
+                    echo('<p style="color: red;">'.$errors["mobileNum"][$i].'</p>');
+                unset($errors["mobileNum"]);
             }
             ?>
             <p>
@@ -73,11 +129,11 @@
                 </label>
             </p>
             <?php
-            if(isset($_SESSION["errors"]["birthDate"]))
+            if(isset($errors["birthDate"]))
             {
-                for($i = 0; $i < count($_SESSION["errors"]["birthDate"]); $i++)
-                    echo('<p style="color: red;">'.$_SESSION["errors"]["birthDate"][$i].'</p>');
-                unset($_SESSION["errors"]["birthDate"]);
+                for($i = 0; $i < count($errors["birthDate"]); $i++)
+                    echo('<p style="color: red;">'.$errors["birthDate"][$i].'</p>');
+                unset($errors["birthDate"]);
             }
             ?>
             <p>
@@ -147,11 +203,11 @@
             </label>
             <br>
             <?php
-            if(isset($_SESSION["errors"]["captchaFake"]))
+            if(isset($errors["captchaFake"]))
             {
-                for($i = 0; $i < count($_SESSION["errors"]["captchaFake"]); $i++)
-                    echo('<p style="color: red;">'.$_SESSION["errors"]["captchaFake"][$i].'</p>');
-                unset($_SESSION["errors"]["captchaFake"]);
+                for($i = 0; $i < count($errors["captchaFake"]); $i++)
+                    echo('<p style="color: red;">'.$errors["captchaFake"][$i].'</p>');
+                unset($errors["captchaFake"]);
             }
             ?>
             <input id="registerSubmit" name="submit" type="submit">
