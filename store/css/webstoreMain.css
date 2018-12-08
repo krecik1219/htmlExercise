@@ -3,7 +3,7 @@ body,html {
     font-size: 1.1em;
 }
 
-.signInBtn, .signUpBtn {
+.signInBtn, .signUpBtn, .logoutBtn {
     width: 80px;
     height: 20px;
     font-size: 14px;

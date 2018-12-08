@@ -1,14 +1,22 @@
 <?php
 
-require_once ("php_src/service/RegisterService.php");
-require_once ("php_src/UserDataValidator.php");
-require_once ("php_src/connection/UserConnection.php");
-
-use connection\UserConnection;
-use service\RegisterService;
-use validation\UserDataValidator;
-
     session_start();
+
+    // guard against accessing registration page as logged user
+    if(isset($_SESSION["user"]))
+    {
+        header("Location: webstore.php");
+        exit();
+    }
+
+    require_once ("php_src/service/RegisterService.php");
+    require_once ("php_src/UserDataValidator.php");
+    require_once ("php_src/connection/UserConnection.php");
+
+    use connection\UserConnection;
+    use service\RegisterService;
+    use validation\UserDataValidator;
+
     $errors = array();
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {

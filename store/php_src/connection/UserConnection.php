@@ -3,7 +3,7 @@
 namespace connection;
 
 require_once("Connection.php");
-
+require_once(realpath(dirname(__FILE__) . '/../User.php'));
 
 use Exception;
 use user\User;
@@ -81,7 +81,7 @@ class UserConnection extends Connection
 
         $email = htmlentities($email, ENT_QUOTES, "UTF-8");
 
-        $sqlQuery = "SELECT id, name, surname, email, mobile, birth_date FROM users WHERE email=?";
+        $sqlQuery = "SELECT id, name, surname, email, password, mobile, birth_date FROM users WHERE email=?";
         $stmt = $this->connection->prepare($sqlQuery);
         if(!$stmt)
             throw new Exception("Query error".$stmt->errno);

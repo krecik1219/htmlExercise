@@ -1,0 +1,19 @@
+body,html {
+    background-color: #daa0b8;
+    font-size: 1.1em;
+}
+
+#container {
+    height: fit-content;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#loginFormContainer {
+    border: 3em solid;
+    -webkit-border-image: url(../img/border_img.png) 15% stretch;
+    -moz-border-image: url(../img/border_img.png) 15% stretch;
+    -o-border-image: url(../img/border_img.png) 15% stretch;
+    border-image: url(../img/border_img.png) 15% stretch;
+}

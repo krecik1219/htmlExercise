@@ -1,3 +1,8 @@
+<?php
+    require_once ("php_src/User.php");
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,8 +19,19 @@
 <body>
     <div class="container">
         <div class="userPanel">
-            <button class="signInBtn">sign in</button>
-            <button class="signUpBtn" onclick="window.location.href='registration.php'">sign up</button>
+            <?php
+                if(!isset($_SESSION["user"]))
+                {
+                    echo('<button class="signInBtn" onclick="window.location.href=\'login.php\'">sign in</button>');
+                    echo('<button class="signUpBtn" onclick="window.location.href=\'registration.php\'">sign up</button>');
+                }
+                else
+                {
+                    echo($_SESSION["user"]->getName().' '.$_SESSION["user"]->getSurname().' ');
+                    echo('<button class="logoutBtn" onclick="window.location.href=\'logout.php\'">logout</button>');
+                }
+            ?>
+
         </div>
         <header class="titleBar">
             Developers Webstore
