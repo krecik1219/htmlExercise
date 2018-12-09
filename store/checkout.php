@@ -23,6 +23,7 @@
     <title>Developers Webstore</title>
 
     <link rel="stylesheet" type="text/css" href="css/webstoreCommon.css">
+    <link rel="stylesheet" type="text/css" href="css/checkout.css">
     <script src="js/webstore.js" type="text/javascript"></script>
 </head>
 <body>
@@ -40,7 +41,7 @@
         Checkout
     </header>
     <div class="contentContainer">
-        <div class="cartContent">
+        <div id="cartContent">
             <?php
                 $shoppingCart = $_SESSION["user"]->getShoppingCart();
                 $cartItems = $shoppingCart->getCartItems();
@@ -65,7 +66,7 @@
                                     '<div class="quantityBlock">'.
                                         '<button class="increaseBtn" type="button" onclick="addOneToCart(this, '.$item->getId().')">+</button>'.
                                         '<input class="quantity" type="number" title="quantity" value="'.$quantity.'">'.
-                                        '<button class="decreaseBtn" type="button" onclick="removeFromCart(this, '.$item->getId().')">-</button>'.
+                                        '<button class="decreaseBtn" type="button" onclick="removeOneFromCart(this, '.$item->getId().')">-</button>'.
                                     '</div>'.
                                     '<div class="priceBlock">'.
                                         '<p class="price">'.$totalPrice.' $</p>'.
@@ -77,6 +78,13 @@
                         '</div>');
             }
             ?>
+        </div>
+        <div class="summary">
+            <?php
+                echo('<p id="totalPrice">Total price: '.$_SESSION["user"]->getShoppingCart()->getTotalPrice().' $</p>');
+            ?>
+            <button type="button" onclick="resetCart()">Reset cart</button>
+            <button type="button" onclick="goWithPayment()">Pay</button>
         </div>
     </div>
     <footer class="footer">

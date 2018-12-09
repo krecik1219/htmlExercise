@@ -53,6 +53,7 @@ li > a {
 }
 
 .contentContainer {
+    position: relative;
     height: 730px;
     border-top: #2c4a75 solid 2px;
     border-bottom: #2c4a75 solid 2px;

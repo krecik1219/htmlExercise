@@ -23,16 +23,16 @@ class Cart
         }
     }
 
-    public function removeFromCart(CartItem $cartItem, $quantityToRemove)
+    public function removeFromCart($itemId, $quantityToRemove)
     {
-        $currentQuantity = $this->cartItems[$cartItem->getItemId()]->getQuantity();
+        $currentQuantity = $this->cartItems[$itemId]->getQuantity();
         if($currentQuantity - $quantityToRemove > 0)
         {
-            $this->cartItems[$cartItem->getItemId()]->decreaseQuantityBy($quantityToRemove);
+            $this->cartItems[$itemId]->decreaseQuantityBy($quantityToRemove);
         }
         else
         {
-            unset($this->cartItems[$cartItem->getItemId()]);
+            unset($this->cartItems[$itemId]);
         }
     }
 
@@ -49,7 +49,7 @@ class Cart
         $totalPrice = 0;
         foreach($this->cartItems as $cartItem)
         {
-            $totalPrice += $cartItem->getPrice();
+            $totalPrice += $cartItem->getTotalPrice();
         }
         return $totalPrice;
     }
@@ -62,5 +62,10 @@ class Cart
             $totalQuantity += $cartItem->getQuantity();
         }
         return $totalQuantity;
+    }
+
+    public function resetCart()
+    {
+        $this->cartItems = array();
     }
 }

@@ -31,6 +31,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/webstoreCommon.css">
     <link rel="stylesheet" type="text/css" href="css/webstoreMain.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/webstore.js" type="text/javascript"></script>
 </head>
 <body>
