@@ -1,6 +1,21 @@
 <?php
     require_once ("php_src/User.php");
+    require_once ("php_src/connection/StockConnection.php");
     session_start();
+
+    use connection\StockConnection;
+
+    try
+    {
+        $connection = new StockConnection();
+        $subcategory = 2;  // default subcategory
+        if(isset($_GET["sc"]))  // subcategory is set - display appropriate items
+            $subcategory = $_GET["sc"];
+        $items = $connection->fetchItemsBySubcategory($subcategory);
+    } catch (Exception $e)
+    {
+        die("Sorry, we had an error: ".$e->getMessage());
+    }
 ?>
 
 <!DOCTYPE html>
@@ -41,8 +56,8 @@
                 <ul>
                     <li>Books
                         <ul>
-                            <li>C++</li>
-                            <li>C</li>
+                            <li><a href="/sc=2">C++</a></li>
+                            <li><a href="/sc=3">C</a></li>
                             <li>Java</li>
                             <li>Python</li>
                         </ul>

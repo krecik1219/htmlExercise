@@ -84,7 +84,7 @@ class UserConnection extends Connection
         $sqlQuery = "SELECT id, name, surname, email, password, mobile, birth_date FROM users WHERE email=?";
         $stmt = $this->connection->prepare($sqlQuery);
         if(!$stmt)
-            throw new Exception("Query error".$stmt->errno);
+            throw new Exception("Query error");
         if(!$stmt->bind_param("s", $email))
             throw new Exception("Query error".$stmt->errno);
         if(!$stmt->execute())

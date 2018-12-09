@@ -9,15 +9,17 @@ class Item
     private $name;
     private $subcategory;
     private $category;
+    private $price;
     private $photo_url;
     private $description;
 
-    public function __construct($id, $name, $subcategory, $category, $photo_url, $description)
+    public function __construct($id, $name, $subcategory, $category, $price, $photo_url, $description)
     {
         $this->id = $id;
         $this->name = $name;
         $this->$subcategory = $subcategory;
         $this->$category = $category;
+        $this->$price = $price;
         $this->photo_url = $photo_url;
         $this->description = $description;
     }
@@ -40,6 +42,11 @@ class Item
     public function getCategory()
     {
         return $this->category;
+    }
+
+    public function getPrice()
+    {
+        return $this->price;
     }
 
     public function getPhotoUrl()
