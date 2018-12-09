@@ -56,8 +56,8 @@
                 <ul>
                     <li>Books
                         <ul>
-                            <li><a href="/sc=2">C++</a></li>
-                            <li><a href="/sc=3">C</a></li>
+                            <li><a href="?sc=2">C++</a></li>
+                            <li><a href="?sc=3">C</a></li>
                             <li>Java</li>
                             <li>Python</li>
                         </ul>
@@ -84,121 +84,37 @@
                     Recommended for you
                 </div>
                 <div class="items">
-                    <div class="item">
-                        <div class="itemImgBlock">
-                            <img class="itemImg" src="img/shop.png" alt="item" width="110" height="110">
-                        </div>
-                        <div class="itemDescr">
-                            <p class="itemName">Item 1</p>
-                            <p class="itemDetails">Detailed descr of item 1</p>
-                        </div>
-                        <div class="itemCartTools">
-                            <form class="addToCartForm" method="get" action="#">
-                                <div class="quantityBlock">
-                                    <button class="increaseBtn" type="button">+</button>
-                                    <input class="quantity" type="number" title="quantity">
-                                    <button class="decreaseBtn" type="button">-</button>
-                                </div>
-                                <div class="addToCartBlock">
-                                    <input class="addToCartBtn" type="submit" title="addToCart" Value="Cart++">
-                                </div>
-                                <div class="floatClearDiv"></div>
-                            </form>
-                        </div>
-                        <div class="floatClearDiv"></div>
-                    </div>
-                    <div class="item">
-                        <div class="itemImgBlock">
-                            <img class="itemImg" src="img/shop.png" alt="item" width="110" height="110">
-                        </div>
-                        <div class="itemDescr">
-                            <p class="itemName">Item 2</p>
-                            <p class="itemDetails">Detailed descr of item 2</p>
-                        </div>
-                        <div class="itemCartTools">
-                            <form class="addToCartForm" method="post" action="#">
-                                <div class="quantityBlock">
-                                    <button class="increaseBtn" type="button">+</button>
-                                    <input class="quantity" type="number" title="quantity">
-                                    <button class="decreaseBtn" type="button">-</button>
-                                </div>
-                                <div class="addToCartBlock">
-                                    <input class="addToCartBtn" type="submit" title="addToCart" Value="Cart++">
-                                </div>
-                                <div class="floatClearDiv"></div>
-                            </form>
-                        </div>
-                        <div class="floatClearDiv"></div>
-                    </div>
-                    <div class="item">
-                        <div class="itemImgBlock">
-                            <img class="itemImg" src="img/shop.png" alt="item" width="110" height="110">
-                        </div>
-                        <div class="itemDescr">
-                            <p class="itemName">Item 3</p>
-                            <p class="itemDetails">Detailed descr of item 3</p>
-                        </div>
-                        <div class="itemCartTools">
-                            <form class="addToCartForm" method="post" action="#">
-                                <div class="quantityBlock">
-                                    <button class="increaseBtn" type="button">+</button>
-                                    <input class="quantity" type="number" title="quantity">
-                                    <button class="decreaseBtn" type="button">-</button>
-                                </div>
-                                <div class="addToCartBlock">
-                                    <input class="addToCartBtn" type="submit" title="addToCart" Value="Cart++">
-                                </div>
-                                <div class="floatClearDiv"></div>
-                            </form>
-                        </div>
-                        <div class="floatClearDiv"></div>
-                    </div>
-                    <div class="item">
-                        <div class="itemImgBlock">
-                            <img class="itemImg" src="img/shop.png" alt="item" width="110" height="110">
-                        </div>
-                        <div class="itemDescr">
-                            <p class="itemName">Item 4</p>
-                            <p class="itemDetails">Detailed descr of item 4</p>
-                        </div>
-                        <div class="itemCartTools">
-                            <form class="addToCartForm" method="post" action="#">
-                                <div class="quantityBlock">
-                                    <button class="increaseBtn" type="button">+</button>
-                                    <input class="quantity" type="number" title="quantity">
-                                    <button class="decreaseBtn" type="button">-</button>
-                                </div>
-                                <div class="addToCartBlock">
-                                    <input class="addToCartBtn" type="submit" title="addToCart" Value="Cart++">
-                                </div>
-                                <div class="floatClearDiv"></div>
-                            </form>
-                        </div>
-                        <div class="floatClearDiv"></div>
-                    </div>
-                    <div class="item">
-                        <div class="itemImgBlock">
-                            <img class="itemImg" src="img/shop.png" alt="item" width="110" height="110">
-                        </div>
-                        <div class="itemDescr">
-                            <p class="itemName">Item 5</p>
-                            <p class="itemDetails">Detailed descr of item 5</p>
-                        </div>
-                        <div class="itemCartTools">
-                            <form class="addToCartForm" method="post" action="#">
-                                <div class="quantityBlock">
-                                    <button class="increaseBtn" type="button">+</button>
-                                    <input class="quantity" type="number" title="quantity">
-                                    <button class="decreaseBtn" type="button">-</button>
-                                </div>
-                                <div class="addToCartBlock">
-                                    <input class="addToCartBtn" type="submit" title="addToCart" Value="Cart++">
-                                </div>
-                                <div class="floatClearDiv"></div>
-                            </form>
-                        </div>
-                        <div class="floatClearDiv"></div>
-                    </div>
+                    <?php
+                        if(isset($items))
+                        {
+                            foreach($items as $item)
+                            {
+                                echo('<div class="item">'.
+                                    '<div class="itemImgBlock">'.
+                                        '<img class="itemImg" src="'.$item->getPhotoUrl().'" alt="item" width="110" height="110">'.
+                                    '</div>'.
+                                    '<div class="itemDescr">'.
+                                        '<p class="itemName">'.$item->getName().'</p>'.
+                                        '<p class="itemDetails">'.$item->getDescription().'</p>'.
+                                    '</div>'.
+                                    '<div class="itemCartTools">'.
+                                        '<form class="addToCartForm" method="get" action="#">'.
+                                            '<div class="quantityBlock">'.
+                                                '<button class="increaseBtn" type="button">+</button>'.
+                                                '<input class="quantity" type="number" title="quantity">'.
+                                                '<button class="decreaseBtn" type="button">-</button>'.
+                                            '</div>'.
+                                            '<div class="addToCartBlock">'.
+                                                '<input class="addToCartBtn" type="submit" title="addToCart" Value="Cart++">'.
+                                            '</div>'.
+                                            '<div class="floatClearDiv"></div>'.
+                                        '</form>'.
+                                    '</div>'.
+                                    '<div class="floatClearDiv"></div>'.
+                                '</div>');
+                            }
+                        }
+                    ?>
                 </div>
             </div>
             <div class="bookmarks">
