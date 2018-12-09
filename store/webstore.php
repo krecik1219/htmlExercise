@@ -99,6 +99,9 @@
                                     '</div>'.
                                     '<div class="itemCartTools">'.
                                         '<form class="addToCartForm" method="get" action="#">'.
+                                            '<div class="priceBlock">'.
+                                                '<p class="price">'.$item->getPrice().' $</p>'.
+                                            '</div>'.
                                             '<div class="quantityBlock">'.
                                                 '<button class="increaseBtn" type="button">+</button>'.
                                                 '<input class="quantity" type="number" title="quantity">'.

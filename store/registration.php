@@ -31,7 +31,7 @@
                 $errors = $registerService->getErrors();
             else
             {
-                echo '"<p align=center>Registration successful!</p> "';
+                echo ('<p align=center>Registration successful!</p>');
                 unset($errors);
             }
         } catch (Exception $e)

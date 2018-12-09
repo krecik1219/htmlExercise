@@ -17,9 +17,9 @@ class Item
     {
         $this->id = $id;
         $this->name = $name;
-        $this->$subcategory = $subcategory;
-        $this->$category = $category;
-        $this->$price = $price;
+        $this->subcategory = $subcategory;
+        $this->category = $category;
+        $this->price = $price;
         $this->photo_url = $photo_url;
         $this->description = $description;
     }

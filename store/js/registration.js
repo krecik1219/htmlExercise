@@ -12,7 +12,7 @@ var inputHelps = {
 function setupPage()
 {
     var registerForm = document.getElementById("registerForm");
-    registerForm.addEventListener("submit", sendRegisterForm);
+    //registerForm.addEventListener("submit", sendRegisterForm);
     registerForm.addEventListener("reset", handleFormReset);
     ratingSelect = document.getElementById("rating");
     ratingSelect.addEventListener("change", handleRatingSelection);

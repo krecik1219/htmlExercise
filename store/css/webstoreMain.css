@@ -139,18 +139,32 @@ li > a {
     text-align: center;
 }
 
+.priceBlock {
+    float: left;
+    margin-left: 5px;
+    width: 60px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.price {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 40px;
+}
+
 .quantityBlock {
     float: left;
     margin-left: 5px;
-    width: 50px;
+    width: 40px;
     margin-top: auto;
     margin-bottom: auto;
 }
 
 .addToCartBlock {
     float: left;
-    margin-left: 10px;
-    width: 135px;
+    margin-left: 5px;
+    width: 85px;
     height: 110px;
 }
 

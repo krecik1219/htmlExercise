@@ -35,10 +35,13 @@ class StockConnection extends Connection
         if(!$result)
             throw new Exception($this->connection->connect_errno);
         $items = array();
+        // ini_set("log_errors", 1);
+        // ini_set("error_log", "/tmp/php-error.log");
         while($item = $result->fetch_assoc())
         {
             $items[] = new Item($item["id_item"], $item["item_name"], $item["subcategory_name"],
                 $item["category_name"], $item["price"], $item["photo_url"], $item["description"]);
+            // error_log('item obj: '.$items[0]->getName().' price: '.$items[0]->getPrice());
         }
         return $items;
     }
