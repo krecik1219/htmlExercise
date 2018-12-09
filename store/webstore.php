@@ -1,6 +1,7 @@
 <?php
     require_once ("php_src/User.php");
     require_once ("php_src/connection/StockConnection.php");
+    require_once ("php_src/Cart.php");
     session_start();
 
     use connection\StockConnection;
@@ -28,6 +29,7 @@
     <meta name="description" content="This is polyglot webstore site">
     <title>Developers Webstore</title>
 
+    <link rel="stylesheet" type="text/css" href="css/webstoreCommon.css">
     <link rel="stylesheet" type="text/css" href="css/webstoreMain.css">
     <script src="js/webstore.js" type="text/javascript"></script>
 </head>
@@ -42,7 +44,9 @@
                 }
                 else
                 {
-                    echo($_SESSION["user"]->getName().' '.$_SESSION["user"]->getSurname().' ');
+                    echo('<span class="userName">'.$_SESSION["user"]->getName().' '.$_SESSION["user"]->getSurname().'</span>');
+                    echo('<a href="checkout.php"><img id="cartImg" src="img/cart.png" alt="Shopping cart"></a>[<span id="cartQuantity">'.
+                            $_SESSION["user"]->getShoppingCart()->getTotalQuantity().'</span>]');
                     echo('<button class="logoutBtn" onclick="window.location.href=\'logout.php\'">logout</button>');
                 }
             ?>
@@ -103,12 +107,12 @@
                                                 '<p class="price">'.$item->getPrice().' $</p>'.
                                             '</div>'.
                                             '<div class="quantityBlock">'.
-                                                '<button class="increaseBtn" type="button">+</button>'.
-                                                '<input class="quantity" type="number" title="quantity">'.
-                                                '<button class="decreaseBtn" type="button">-</button>'.
+                                                '<button class="increaseBtn" type="button" onclick="increaseItemQuantity(this)">+</button>'.
+                                                '<input class="quantity" type="number" title="quantity" value="0">'.
+                                                '<button class="decreaseBtn" type="button" onclick="decreaseItemQuantity(this)">-</button>'.
                                             '</div>'.
                                             '<div class="addToCartBlock">'.
-                                                '<input class="addToCartBtn" type="submit" title="addToCart" Value="Cart++">'.
+                                                '<input class="addToCartBtn" type="submit" title="addToCart" Value="Cart++" onclick="addMultipleToCart(this, '.$item->getId().')">'.
                                             '</div>'.
                                             '<div class="floatClearDiv"></div>'.
                                         '</form>'.

@@ -2,6 +2,9 @@
 
 namespace user;
 
+require_once ("Cart.php");
+
+use cart\Cart;
 
 class User
 {
@@ -11,6 +14,11 @@ class User
     private $email;
     private $mobile;
     private $birthDate;
+
+    /**
+     * @var Cart
+     */
+    private $shoppingCart;
 
     /**
      * User constructor.
@@ -29,6 +37,7 @@ class User
         $this->email = $email;
         $this->mobile = $mobile;
         $this->birthDate = $birthDate;
+        $this->shoppingCart = new Cart();
     }
 
     public function getId()
@@ -59,5 +68,13 @@ class User
     public function getBirthDate()
     {
         return $this->birthDate;
+    }
+
+    /**
+     * @return Cart
+     */
+    public function getShoppingCart()
+    {
+        return $this->shoppingCart;
     }
 }

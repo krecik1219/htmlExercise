@@ -45,4 +45,34 @@ class StockConnection extends Connection
         }
         return $items;
     }
+
+    public function fetchItemById($id)
+    {
+        $query = "select id_item, item_name, subcategory_name, category_name, price, photo_url, description ".
+            "from stock s inner join subcategories sc on s.id_item=? and s.id_subcategory = sc.id_subcategory ".
+            "inner join categories c on sc.id_category = c.id_category ";
+        //mysqli_report(MYSQLI_REPORT_ALL);
+        $stmt = $this->connection->prepare($query);
+        if(!$stmt)
+            throw new Exception("Query error");
+        if(!$stmt->bind_param("d", $id))
+            throw new Exception("Query error".$stmt->errno);
+        if(!$stmt->execute())
+            throw new Exception("Error executing query ".$stmt->errno);
+        $result = $stmt->get_result();
+        $stmt->close();
+        if(!$result)
+            throw new Exception($this->connection->connect_errno);
+
+        // ini_set("log_errors", 1);
+        // ini_set("error_log", "/tmp/php-error.log");
+        if($result->num_rows == 0)
+            throw new Exception("Item data not found.");
+
+        $dbItem = $result->fetch_assoc();
+        $item = new Item($dbItem["id_item"], $dbItem["item_name"], $dbItem["subcategory_name"],
+            $dbItem["category_name"], $dbItem["price"], $dbItem["photo_url"], $dbItem["description"]);
+        // error_log('item obj: '.$items[0]->getName().' price: '.$items[0]->getPrice());
+        return $item;
+    }
 }

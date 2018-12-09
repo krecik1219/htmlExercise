@@ -1,0 +1,166 @@
+body,html {
+    background-color: #daa0b8;
+    font-size: 1.1em;
+}
+
+li > a {
+    text-decoration: none;
+}
+
+.logoutBtn {
+    width: 80px;
+    height: 20px;
+    font-size: 14px;
+    background-color: #243db4;
+    color: #f7e4ba;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1500px;
+    min-height: 900px;
+    border: #2c4a75 solid 2px;
+}
+
+.userPanel {
+    height: 50px;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 1490px;
+    text-align: right;
+}
+
+.userName {
+    margin-right: 30px;
+}
+
+.logoutBtn {
+    margin-left: 30px;
+}
+
+.titleBar {
+    padding-top: 10px;
+    height: 40px;
+    border-top: #2c4a75 solid 2px;
+    margin-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 1490px;
+    text-align: center;
+    font-size: 1.3em;
+}
+
+.contentContainer {
+    height: 730px;
+    border-top: #2c4a75 solid 2px;
+    border-bottom: #2c4a75 solid 2px;
+    margin-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 1490px;
+}
+
+.item {
+    margin-top: 5px;
+    border: #4b1f75 solid 2px;
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 120px;
+}
+
+.itemImgBlock {
+    float: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 110px;
+    margin-left: 5px;
+    width: 110px;
+}
+
+.itemDescr {
+    float: left;
+    margin: 5px 15px;
+    width: 300px;
+    height: 110px;
+}
+
+.itemName {
+    font-size: 20px;
+}
+
+.itemDetails {
+    font-size: 16px;
+}
+
+.itemCartTools {
+    float: right;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    width: 250px;
+    height: 110px
+}
+
+.quantity {
+    width: 30px;
+    height: 30px;
+}
+
+.increaseBtn, .decreaseBtn {
+    display: block;
+    width: 34px;
+    height: 30px;
+    text-align: center;
+}
+
+.priceBlock {
+    float: left;
+    margin-left: 5px;
+    width: 90px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.price {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 40px;
+}
+
+.quantityBlock {
+    float: left;
+    margin-left: 15px;
+    width: 40px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.addToCartBlock {
+    float: left;
+    margin-left: 5px;
+    width: 85px;
+    height: 110px;
+}
+
+.addToCartBtn {
+    margin-top: 40px;
+    margin-left: 20px;
+    width: 60px;
+    height: 25px;
+}
+
+.floatClearDiv {
+    clear: both;
+}
+
+.footer {
+    margin-top: 5px;
+    padding-top: 20px;
+    height: 30px;
+    width: 1490px;
+    text-align: center;
+    font-size: 12px;
+}
