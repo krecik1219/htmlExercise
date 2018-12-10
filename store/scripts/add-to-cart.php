@@ -1,9 +1,9 @@
 <?php
 
-    require_once ("php_src/User.php");
-    require_once ("php_src/Cart.php");
-    require_once ("php_src/CartItem.php");
-    require_once ("php_src/connection/StockConnection.php");
+    require_once("../php_src/User.php");
+    require_once("../php_src/Cart.php");
+    require_once("../php_src/CartItem.php");
+    require_once("../php_src/connection/StockConnection.php");
 
     use cart\CartItem;
     use connection\StockConnection;
@@ -39,7 +39,7 @@
     }
     else
     {
-        header('Location: webstore.php');
+        header('Location: ../webstore.php');
         exit();
     }
 

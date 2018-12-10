@@ -60,7 +60,7 @@ function addToCart(triggeringObject, itemId, quantity)
             }
         }
     };
-    xmlhttp.open("GET", "add-to-cart.php?id=" + itemId + "&q=" + quantity, true);
+    xmlhttp.open("GET", "scripts/add-to-cart.php?id=" + itemId + "&q=" + quantity, true);
     xmlhttp.send();
 }
 
@@ -160,7 +160,7 @@ function removeFromCart(triggeringObject, itemId, quantity)
             }
         }
     };
-    xmlhttp.open("GET", "remove-from-cart.php?id=" + itemId + "&q=" + quantity, true);
+    xmlhttp.open("GET", "scripts/remove-from-cart.php?id=" + itemId + "&q=" + quantity, true);
     xmlhttp.send();
 }
 
@@ -192,7 +192,7 @@ function resetCart()
             }
         }
     };
-    xmlhttp.open("GET", "reset-cart.php", true);
+    xmlhttp.open("GET", "scripts/reset-cart.php", true);
     xmlhttp.send();
 }
 

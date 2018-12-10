@@ -1,7 +1,7 @@
 <?php
 
-    require_once ("php_src/User.php");
-    require_once ("php_src/Cart.php");
+    require_once("../php_src/User.php");
+    require_once("../php_src/Cart.php");
     session_start();
 
     if(isset($_SESSION["user"]) and $_SERVER["REQUEST_METHOD"] == "GET")
@@ -12,7 +12,7 @@
     }
     else
     {
-        header('Location: webstore.php');
+        header('Location: ../webstore.php');
         exit();
     }
 

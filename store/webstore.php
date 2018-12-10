@@ -17,6 +17,16 @@
     {
         die("Sorry, we had an error: ".$e->getMessage());
     }
+
+    $bgColor = "#daa0b8";
+    if(isset($_COOKIE["websiteBGColor"]))
+        $bgColor = $_COOKIE["websiteBGColor"];
+    $fontFamily = "Arial";
+    if(isset($_COOKIE["userFontFamily"]))
+        $fontFamily = $_COOKIE["userFontFamily"];
+    $fontColor = "#000000";
+    if(isset($_COOKIE["userFontColor"]))
+        $fontColor = $_COOKIE["userFontColor"];
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +44,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/webstore.js" type="text/javascript"></script>
 </head>
-<body>
+<?php
+    echo('<body style="color: '.$fontColor.'; background-color: '.$bgColor.'; font-family: '.$fontFamily.'">');
+?>
     <div class="container">
         <div class="userPanel">
             <?php
@@ -45,10 +57,10 @@
                 }
                 else
                 {
-                    echo('<span class="userName">'.$_SESSION["user"]->getName().' '.$_SESSION["user"]->getSurname().'</span>');
+                    echo('<span class="userName"><a href = "preferences.php">'.$_SESSION["user"]->getName().' '.$_SESSION["user"]->getSurname().'</a></span>');
                     echo('<a href="checkout.php"><img id="cartImg" src="img/cart.png" alt="Shopping cart"></a>[<span id="cartQuantity">'.
                             $_SESSION["user"]->getShoppingCart()->getTotalQuantity().'</span>]');
-                    echo('<button class="logoutBtn" onclick="window.location.href=\'logout.php\'">logout</button>');
+                    echo('<button class="logoutBtn" onclick="window.location.href=\'scripts/logout.php\'">logout</button>');
                 }
             ?>
 
