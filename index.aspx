@@ -1,6 +1,9 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="_index" %>
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head runat="server">
     <meta charset="UTF-8">
     <meta name="keywords" content="programming, languages,
         programming languages, c++, python, c, java, computer science, computing">
@@ -82,7 +85,7 @@
                         <li><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python Wikipedia</a></li>
                     </ol>
                 </li>
-                <li><a href="store/webstore.html">Webstore</a></li>
+                <li><a href="store/webstore.php">Webstore</a></li>
                 <li id="contactLI"><a href="#contactInfo">Contact information</a></li>
             </ul>
         </nav>
