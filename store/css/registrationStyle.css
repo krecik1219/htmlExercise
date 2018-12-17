@@ -34,7 +34,7 @@ input:optional {
     margin-right: 3em;
 }
 
-[type=reset] {
+button {
       width: 10em;
       height: 4em;
 }
