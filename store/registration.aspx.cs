@@ -13,10 +13,21 @@ public partial class store_registration : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         System.Diagnostics.Debug.WriteLine("pageload");
-        if(IsPostBack)
+        initValidators();
+        if (IsPostBack)
         {
             handleFormPostBackAction();
         }
+    }
+
+    protected void initValidators()
+    {
+        initBirthDateCompareValidator();
+    }
+
+    protected void initBirthDateCompareValidator()
+    {
+        birthDateCompareValidator.ValueToCompare = DateTime.Now.ToShortDateString();
     }
 
     protected void handleFormPostBackAction()
