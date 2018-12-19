@@ -70,6 +70,7 @@
             <p>
                 <label>Date of birth:
                     <asp:TextBox ID="birthDate" runat="server" TextMode="Date"></asp:TextBox>
+                    <asp:CompareValidator ID="birthDateCompareValidator" Operator="LessThan" type="Date" ControltoValidate="birthDate" ErrorMessage="You were not born yet :/" runat="server" Display="Dynamic" ForeColor="Red"/>
                 </label>
             </p>
             <p>
