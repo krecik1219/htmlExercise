@@ -96,7 +96,7 @@
         </form>
     </div>
     <p>
-        <a href="../index.html">Back to home page</a>
+        <a href="../index.aspx">Back to home page</a>
     </p>
 
     <footer id="contactInfo">
