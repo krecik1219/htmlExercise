@@ -85,7 +85,7 @@
                         <li><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python Wikipedia</a></li>
                     </ol>
                 </li>
-                <li><a href="store/webstore.html">Webstore</a></li>
+                <li><a href="store/webstore.aspx">Webstore</a></li>
                 <li id="contactLI"><a href="#contactInfo">Contact information</a></li>
             </ul>
         </nav>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,41 +37,35 @@ public partial class store_registration : System.Web.UI.Page
         Validate();
         if(IsValid)
         {
-            displaySentDataInLabel();
+            registerUser();
         }
     }
 
-    protected void displaySentDataInLabel()
+    protected void registerUser()
     {
-        System.Diagnostics.Debug.WriteLine("displaySentDataInLabel");
-        var nameOutput = string.Empty;
-        var surnameOutput = string.Empty;
-        var emailOutput = string.Empty;
-        var mobileOutput = string.Empty;
-        var birthDateOutput = string.Empty;
-        var themeColorOutput = string.Empty;
-        var ratingOutput = string.Empty;
-        if (!string.IsNullOrEmpty(nameInput.Text))
-            nameOutput = "<br />Name: " + nameInput.Text;
-        if (!string.IsNullOrEmpty(surnameInput.Text))
-            surnameOutput = "<br />Surname: " + surnameInput.Text;
-        if (!string.IsNullOrEmpty(email.Text))
-            emailOutput = "<br />Email: " + email.Text;
-        if (!string.IsNullOrEmpty(mobileNum.Text))
-            mobileOutput = "<br />Mobile: " + mobileNum.Text;
-        if (!string.IsNullOrEmpty(birthDate.Text))
-            birthDateOutput = "<br />Birth date: " + birthDate.Text;
-        if (!string.IsNullOrEmpty(themeColor.Text))
-            themeColorOutput = "<br />Theme color: <span style=\"color: " + themeColor.Text + ";\">" + themeColor.Text + "</span>";
-        if (!string.IsNullOrEmpty(rating.Text))
-            ratingOutput = "<br />Rating: " + rating.Text;
-        var stringBuilder = new StringBuilder();
-        stringBuilder.Append(nameOutput).Append(surnameOutput).
-            Append(emailOutput).Append(mobileOutput).
-            Append(birthDateOutput).Append(themeColorOutput).
-            Append(ratingOutput);
-        outputLabel.Text = stringBuilder.ToString();
-        outputLabel.Visible = true;
+        var dbContext = new StockDbDataContext();
+        var registrationService = new RegistrationService(dbContext);
+        var registrationResult = registrationService.registerUser(
+            nameInput.Text,
+            surnameInput.Text,
+            email.Text,
+            password1.Text,
+            mobileNum.Text.Length > 0 ? mobileNum.Text : null,
+            birthDate.Text.Length > 0 ? (DateTime?)DateTime.Parse(birthDate.Text) : null
+        );
+        if(registrationResult.isSuccessful())
+        {
+            System.Diagnostics.Debug.WriteLine("registration successful");
+            outputLabel.ForeColor = System.Drawing.Color.Black;
+            outputLabel.Text = "Registration successful. <a href=\"login.aspx\">You can now login</a>";
+            outputLabel.Visible = true;
+        }
+        else
+        {
+            System.Diagnostics.Debug.WriteLine("registration failed");
+            outputLabel.Text = registrationResult.Error.Message;
+            outputLabel.Visible = true;
+        }
     }
 
     protected void captchaCustomValidatorServerValidate(object source, ServerValidateEventArgs args)

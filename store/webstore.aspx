@@ -4,9 +4,9 @@
     <link rel="stylesheet" type="text/css" href="css/webstoreMain.css">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="titlePlaceHolder" Runat="Server">
-    Developers Webstore
+    <span id="titleHolder" runat="server">Developers Webstore</span>
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentContainerPlaceHolder" Runat="Server">
+<asp:Content ID="Content3" ContentPlaceHolderID="contentContainerPlaceHolder" Runat="Server">
     <div class="categories">
         <ul>
             <li>Books
@@ -38,7 +38,37 @@
         <div class="category">
             Recommended for you
         </div>
-        <div class="items" id="items" runat="server">
+        <div id="items" class="items" runat="server">
+        <asp:Repeater ID="itemsRepeater" runat="server">
+            <ItemTemplate>
+                <div class="item">
+                    <div class="itemImgBlock">
+                        <img class="itemImg" src='<%# Eval("PhotoUrl") %>' alt="item" width="110" height="110">
+                    </div>
+                    <div class="itemDescr">
+                        <p class="itemName"><%# Eval("Name") %></p>
+                        <p class="itemDetails"><%# Eval("Description") %></p>
+                    </div>
+                    <div class="itemCartTools">
+                        <form class="addToCartForm" method="get" action="#">
+                            <div class="priceBlock">
+                                <p class="price"><%# Eval("Price") %></p>
+                            </div>
+                            <div class="quantityBlock">
+                                <button class="increaseBtn" type="button" onclick="increaseItemQuantity(this)">+</button>
+                                <input class="quantity" type="number" title="quantity" value="0">
+                                <button class="decreaseBtn" type="button" onclick="decreaseItemQuantity(this)">-</button>
+                            </div>
+                            <div class="addToCartBlock">
+                                <input class="addToCartBtn" type="submit" title="addToCart" Value="Cart++" onclick="addMultipleToCart(this, 6)">
+                            </div>
+                            <div class="floatClearDiv"></div>
+                        </form>
+                    </div>
+                    <div class="floatClearDiv"></div>
+                </div>
+            </ItemTemplate>
+        </asp:Repeater>
         </div>
     </div>
     <div class="bookmarks">

@@ -3,14 +3,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head runat="server">
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <meta name="keywords" content="programming, languages, store, webstore, e-commerce,
         programming languages, c++, python, c, java, computer science, computing, shop,
-        online, buy, payment, developers, IT, books, courses, video, audio, registration">
-    <meta name="description" content="Polyglot webstore registration site">
+        online, buy, payment, developers, IT, books, courses, video, audio, registration" />
+    <meta name="description" content="Polyglot webstore registration site" />
     <title>Webstore registartion</title>
 
-    <link rel="stylesheet" href="css/registrationStyle.css" type="text/css">
+    <link rel="stylesheet" href="css/registrationStyle.css" type="text/css" />
     <!-- <script src="js/registration.js" type="text/javascript"></script> -->
     <script type="text/javascript">
         function resetForm() {
@@ -91,8 +91,8 @@
             <br>
             <asp:Button ID="registerSubmit" runat="server" Text="Submit" />
             <button id="resetButton" type="button" onclick="resetForm();">Reset</button>
-            <br />
-            <asp:Label ID="outputLabel" runat="server" Visible="false"></asp:Label>
+            <br /> <br />
+            <asp:Label ID="outputLabel" runat="server" Visible="false" ForeColor="Red"></asp:Label>
         </form>
     </div>
     <p>

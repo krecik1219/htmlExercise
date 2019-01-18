@@ -17,16 +17,18 @@
 </head>
 <body>
 <div class="container">
-    <div class="userPanel">
+    <form id="userPanelform" runat="server">
+    <div id="userPanel" class="userPanel" runat="server">
 
     </div>
+    </form>
     <header class="titleBar">
         <asp:ContentPlaceHolder id="titlePlaceHolder" runat="server">
         
         </asp:ContentPlaceHolder>
     </header>
     <div class="contentContainer">
-        <asp:ContentPlaceHolder id="ContentContainerPlaceHolder" runat="server">
+        <asp:ContentPlaceHolder id="contentContainerPlaceHolder" runat="server">
         
         </asp:ContentPlaceHolder>
     </div>
