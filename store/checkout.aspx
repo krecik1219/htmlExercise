@@ -39,8 +39,8 @@
     </div>
     <div class="summary">
         <p id="totalPrice" runat="server">Total price:</p>
-        <asp:Button ID="resetCartBtn" type="button" OnClick="resetCart" Text="Reset cart" runat="server"/>
-        <button type="button" onclick="goWithPayment()">Pay</button>
+        <asp:Button ID="resetCartBtn" type="button" OnClick="resetCart" Text="Reset cart" runat="server" />
+        <asp:Button ID="goWithPaymentBtn" type="button" onclick="goWithPayment" Text="Pay" runat="server" />
     </div>
 </asp:Content>
 

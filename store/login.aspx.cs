@@ -1,17 +1,21 @@
-﻿using Service;
+﻿using Model;
+using Service;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 public partial class store_login : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        rejectAlreadyLoggedUsers();
         if (IsPostBack)
             handleLoginRequest();
+    }
+
+    protected void rejectAlreadyLoggedUsers()
+    {
+        var user = Session["user"] as User;
+        if (user != null)
+            Response.Redirect("webstore.aspx");
     }
 
     protected void handleLoginRequest()

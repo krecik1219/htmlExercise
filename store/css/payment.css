@@ -1,0 +1,18 @@
+﻿.paymentMethodsContainer {
+    margin-top: 50px;
+}
+
+.paymentItem {
+    width: 300px;
+    height: 200px;
+    margin: auto;
+}
+
+.summary {
+    position: absolute;
+    bottom: 5px;
+    width: 1490px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -2,19 +2,25 @@
 using Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Services;
-using System.Web.UI;
 using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
 
 public partial class store_checkout : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        rejcetNotLoggedUsers();
         System.Diagnostics.Debug.WriteLine("Page_Load()");
         initItemsView();
+        handleUserPanel();
+    }
+
+    protected void rejcetNotLoggedUsers()
+    {
+        var user = Session["user"] as User;
+        if (user == null)
+            Response.Redirect("webstore.aspx");
     }
 
     protected void initItemsView()
@@ -25,6 +31,13 @@ public partial class store_checkout : System.Web.UI.Page
             return;
         itemsRepeater.DataSource = user.ShoppingCart.CartItems.Values;
         itemsRepeater.DataBind();
+    }
+
+    protected void handleUserPanel()
+    {
+        var user = Session["user"] as User;
+        if (user == null)
+            return;
         var userPanel = Master.FindControl("userPanel") as HtmlContainerControl;
         UserPanelInitializer.handleUserPanel(user, userPanel, handleLogoutClick);
         totalPrice.InnerText = "Total price: " + user.ShoppingCart.getTotalPrice() + "$";
@@ -87,4 +100,13 @@ public partial class store_checkout : System.Web.UI.Page
         return "Item removed from your cart";
     }
 
+
+    protected void goWithPayment(object sender, EventArgs e)
+    {
+        var price = totalPrice.InnerText.Split(' ')[2];
+        var priceDecimal = decimal.Parse(price.Substring(0, price.Length - 1));
+        System.Diagnostics.Debug.WriteLine("goWithPayment total price: " + priceDecimal);
+        Session["totalPrice"] = priceDecimal;
+        Response.Redirect("payment.aspx");
+    }
 }
