@@ -32,12 +32,15 @@ public class CartItem
         this.Quantity = quantity;
     }
 
-    public decimal getTotalPrice()
+    public decimal TotalPrice
     {
-        return Item.Price * Quantity;
+        get
+        {
+            return Item.Price * Quantity;
+        }
     }
 
-    public int getItemId()
+        public int getItemId()
     {
         return Item.Id;
     }

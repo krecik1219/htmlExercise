@@ -16,7 +16,7 @@ public class Cart
 
     public void addToCart(CartItem cartItem)
     {
-        if (CartItems[cartItem.getItemId()] == null)
+        if (!CartItems.ContainsKey(cartItem.getItemId()))
         {
             CartItems[cartItem.getItemId()] = cartItem;
         }
@@ -44,7 +44,7 @@ public class Cart
         decimal totalPrice = 0;
         foreach (var cartItem in CartItems.Values)
         {
-            totalPrice += cartItem.getTotalPrice();
+            totalPrice += cartItem.TotalPrice;
         }
         return totalPrice;
     }

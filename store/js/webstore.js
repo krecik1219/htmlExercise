@@ -1,6 +1,6 @@
 function increaseItemQuantity(triggeringObject, increaseBy=1)
 {
-    var quantityBlock = triggeringObject.parentNode.childNodes[1];
+    var quantityBlock = triggeringObject.parentNode.childNodes[3];
     var currentQuantityString = quantityBlock.value;
     var currentQuantityInt = parseInt(currentQuantityString);
     if(currentQuantityString === "")
@@ -10,7 +10,7 @@ function increaseItemQuantity(triggeringObject, increaseBy=1)
 
 function decreaseItemQuantity(triggeringObject, decreaseBy=1)
 {
-    var quantityBlock = triggeringObject.parentNode.childNodes[1];
+    var quantityBlock = triggeringObject.parentNode.childNodes[3];
     var currentQuantityString = quantityBlock.value;
     var currentQuantityInt = parseInt(currentQuantityString);
     if(currentQuantityString === "")
@@ -20,61 +20,55 @@ function decreaseItemQuantity(triggeringObject, decreaseBy=1)
 
 function updateCartItemTotalPrice(triggeringObject)
 {
-    var quantityBlock = triggeringObject.parentNode.childNodes[1];
+    var quantityBlock = triggeringObject.parentNode.childNodes[3];
     var currentQuantityString = quantityBlock.value;
     var currentQuantityInt = parseInt(currentQuantityString);
     if(currentQuantityString === "")
         currentQuantityInt = 0;
 
-    var priceBlock = triggeringObject.parentNode.parentNode.childNodes[0].childNodes[0];
+    var priceBlock = triggeringObject.parentNode.parentNode.childNodes[1].childNodes[1];
     var currentPriceString = priceBlock.innerText;
     currentPriceString = currentPriceString.split(' ')[0];
     var currentPriceFloat = parseFloat(currentPriceString);
     if(currentPriceString === "")
         currentPriceFloat = 0.00;
 
-    var totalPriceBlock = triggeringObject.parentNode.parentNode.childNodes[2].childNodes[0];
+    var totalPriceBlock = triggeringObject.parentNode.parentNode.childNodes[5].childNodes[1];
     var totalPrice = currentQuantityInt * currentPriceFloat;
     totalPriceBlock.innerText = totalPrice + ' $';
 }
 
-function addToCart(triggeringObject, itemId, quantity)
+function addToCart(triggeringObject, itemId, quantity, methodFullName)
 {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState === XMLHttpRequest.DONE)
-        {
-            if (xmlhttp.status === 200)  // successful with response
-            {
-                var cartQuantity = document.getElementById("cartQuantity");
-                cartQuantity.innerText = parseInt(cartQuantity.innerText) + quantity;
-                alert(xmlhttp.responseText);
-            }
-            else if (xmlhttp.status === 400)
-            {
-                alert('There was an error 400');
-            }
-            else
-            {
-                alert('something else other than 200 was returned');
-            }
+    var dataValue = { "itemId": itemId, "quantity": quantity };
+    $.ajax({
+        type: "POST",
+        url: methodFullName,
+        data: JSON.stringify(dataValue),
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        success: function (result) {
+            var cartQuantity = document.getElementById("cartQuantity");
+            cartQuantity.innerText = "[" + (parseInt(cartQuantity.innerText.substring(1, cartQuantity.innerText.length - 1)) + quantity) + "]";
+            alert("We returned: " + result.d);
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("Request: " + XMLHttpRequest.toString() + "\n\nStatus: " + textStatus + "\n\nError: " + errorThrown);
         }
-    };
-    xmlhttp.open("GET", "scripts/add-to-cart.php?id=" + itemId + "&q=" + quantity, true);
-    xmlhttp.send();
+    });
 }
 
-function addOneToCart(triggeringObject, itemId)
+function addOneToCart(triggeringObject, itemId, methodFullName)
 {
-    addToCart(triggeringObject, itemId, 1);
+    addToCart(triggeringObject, itemId, 1, methodFullName);
     increaseItemQuantity(triggeringObject, 1);
     updateCartItemTotalPrice(triggeringObject);
     updateTotalPrice();
 }
 
-function addMultipleToCart(triggeringObject, itemId)
+function addMultipleToCart(triggeringObject, itemId, methodFullName)
 {
-    var quantityBlock = triggeringObject.parentNode.parentNode.childNodes[1].childNodes[1];
+    var quantityBlock = triggeringObject.parentNode.parentNode.childNodes[3].childNodes[3];
     var quantityString = quantityBlock.value;
     if(!isInteger(quantityString) || !isInteger(itemId))
     {
@@ -91,12 +85,12 @@ function addMultipleToCart(triggeringObject, itemId)
         return;
     }
 
-    addToCart(triggeringObject, itemId, quantity);
+    addToCart(triggeringObject, itemId, quantity, methodFullName);
 }
 
 function updateCartItemAfterRemoving(triggeringObject, quantity)
 {
-    var quantityBlock = triggeringObject.parentNode.childNodes[1];
+    var quantityBlock = triggeringObject.parentNode.childNodes[3];
     var currentQuantityString = quantityBlock.value;
     var currentQuantityInt = parseInt(currentQuantityString);
     if(currentQuantityString === "")
@@ -108,23 +102,30 @@ function updateCartItemAfterRemoving(triggeringObject, quantity)
     }
     else  // cartItem was removed
     {
-        var item = triggeringObject.parentNode.parentNode.parentNode.parentNode;
+        var item = triggeringObject.parentNode.parentNode.parentNode;
+        var nextItemSibling = item.nextSibling;
+        item.parentNode.removeChild(nextItemSibling);
         item.parentNode.removeChild(item);
     }
 }
 
 function updateTotalPrice()
 {
-    var cartContent = document.getElementById("cartContent");
+    var cartContent = document.getElementById("contentContainerPlaceHolder_cartContent");
+    var totalPriceBlock = document.getElementById("contentContainerPlaceHolder_totalPrice");
+    if (cartContent === null)
+    {
+        totalPriceBlock.innerText = 'Total price: 0 $';
+        return;
+    }
     var totalPrice = 0;
-    for(var i = 1; i < cartContent.childNodes.length - 1; i++)
+    for(var i = 1; i < cartContent.childNodes.length - 1; i += 2)
     {
         var child = cartContent.childNodes[i];
-        var priceBlock = child.childNodes[2].childNodes[0].childNodes[2].childNodes[0];
+        var priceBlock = child.childNodes[5].childNodes[5].childNodes[1];
         var price = parseFloat(priceBlock.innerText.split(' ')[0]);
         totalPrice += price;
     }
-    var totalPriceBlock = document.getElementById("totalPrice");
     totalPriceBlock.innerText = 'Total price: ' + totalPrice + ' $';
 }
 
@@ -138,30 +139,24 @@ function resetCartFront()
 
 function removeFromCart(triggeringObject, itemId, quantity)
 {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState === XMLHttpRequest.DONE)
-        {
-            if (xmlhttp.status === 200)  // successful with response
-            {
-                var cartQuantity = document.getElementById("cartQuantity");
-                cartQuantity.innerText = parseInt(cartQuantity.innerText) - quantity;
-                updateCartItemAfterRemoving(triggeringObject, quantity);
-                updateTotalPrice();
-                alert(xmlhttp.responseText);
-            }
-            else if (xmlhttp.status === 400)
-            {
-                alert('There was an error 400');
-            }
-            else
-            {
-                alert('something else other than 200 was returned');
-            }
+    var dataValue = { "itemId": itemId, "quantity": quantity };
+    $.ajax({
+        type: "POST",
+        url: "checkout.aspx/removeFromCart",
+        data: JSON.stringify(dataValue),
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        success: function (result) {
+            var cartQuantity = document.getElementById("cartQuantity");
+            cartQuantity.innerText = "[" + (parseInt(cartQuantity.innerText.substring(1, cartQuantity.innerText.length - 1)) - quantity) + "]";
+            updateCartItemAfterRemoving(triggeringObject, quantity);
+            updateTotalPrice();
+            alert("We returned: " + result.d);
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("Request: " + XMLHttpRequest.toString() + "\n\nStatus: " + textStatus + "\n\nError: " + errorThrown);
         }
-    };
-    xmlhttp.open("GET", "scripts/remove-from-cart.php?id=" + itemId + "&q=" + quantity, true);
-    xmlhttp.send();
+    });
 }
 
 function removeOneFromCart(triggeringObject, itemId)

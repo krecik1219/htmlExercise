@@ -1,5 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/store/webstore.master" AutoEventWireup="true" CodeFile="webstore.aspx.cs" Inherits="store_webstore" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="headPlaceHolder" Runat="Server">
     <link rel="stylesheet" type="text/css" href="css/webstoreMain.css">
 </asp:Content>
@@ -50,7 +49,7 @@
                         <p class="itemDetails"><%# Eval("Description") %></p>
                     </div>
                     <div class="itemCartTools">
-                        <form class="addToCartForm" method="get" action="#">
+
                             <div class="priceBlock">
                                 <p class="price"><%# Eval("Price") %></p>
                             </div>
@@ -60,10 +59,9 @@
                                 <button class="decreaseBtn" type="button" onclick="decreaseItemQuantity(this)">-</button>
                             </div>
                             <div class="addToCartBlock">
-                                <input class="addToCartBtn" type="submit" title="addToCart" Value="Cart++" onclick="addMultipleToCart(this, 6)">
+                                <button class="addToCartBtn" type="submit" title="addToCart" onClick="addMultipleToCart(this, '<%# Eval("Id") %>', 'webstore.aspx/addToCart'); return false;">Cart++</button>
                             </div>
                             <div class="floatClearDiv"></div>
-                        </form>
                     </div>
                     <div class="floatClearDiv"></div>
                 </div>

@@ -11,17 +11,17 @@
     <title>Developers Webstore</title>
 
     <link rel="stylesheet" type="text/css" href="css/webstoreCommon.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/webstore.js" type="text/javascript"></script>
     <asp:ContentPlaceHolder id="headPlaceHolder" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
+<form runat="server">
 <div class="container">
-    <form id="userPanelform" runat="server">
     <div id="userPanel" class="userPanel" runat="server">
 
     </div>
-    </form>
     <header class="titleBar">
         <asp:ContentPlaceHolder id="titlePlaceHolder" runat="server">
         
@@ -36,5 +36,6 @@
         <a href="webstore.aspx">Webstore main page</a> | <del>&copy;</del> Przemysław Szeliński, no rights at all.
     </footer>
 </div>
+</form>
 </body>
 </html>
