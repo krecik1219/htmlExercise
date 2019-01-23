@@ -51,7 +51,7 @@
                     <div class="itemCartTools">
 
                             <div class="priceBlock">
-                                <p class="price"><%# Eval("Price") %></p>
+                                <p class="price"><%# Eval("Price") %> $</p>
                             </div>
                             <div class="quantityBlock">
                                 <button class="increaseBtn" type="button" onclick="increaseItemQuantity(this)">+</button>

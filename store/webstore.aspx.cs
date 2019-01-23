@@ -40,8 +40,15 @@ public partial class store_webstore : System.Web.UI.Page
 
         var dbContext = new StockDbDataContext();
         var fetchService = new FetchService(dbContext);
-
-        var itemsData = fetchService.fetchItemsBySubcategory(idSubcategory);
+        var itemsData = new List<Item>();
+        try
+        {
+            itemsData = fetchService.fetchItemsBySubcategory(idSubcategory);
+        } catch(Exception)
+        {
+            titleHolder.InnerText = "Connection problem";
+            titleHolder.Attributes.Add("color", "red");
+        }
         Session["items"] = itemsData;
         itemsRepeater.DataSource = itemsData;
         itemsRepeater.DataBind();

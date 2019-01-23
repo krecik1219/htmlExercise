@@ -29,7 +29,7 @@ namespace helpers
             var userPreferencesAnchor = new HtmlAnchor();
             userNameSpan.Controls.Add(userPreferencesAnchor);
             userPreferencesAnchor.HRef = "preferences.aspx";
-            userPreferencesAnchor.InnerHtml = user.Name + user.Surname;
+            userPreferencesAnchor.InnerHtml = user.Name + " " + user.Surname;
             var checkoutAnchor = new HtmlAnchor
             {
                 HRef = "checkout.aspx"

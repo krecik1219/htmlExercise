@@ -26,6 +26,12 @@ public class Cart
         }
     }
 
+    public void increaseQuantityBy(int itemId, int quantity)
+    {
+
+        CartItems[itemId].increaseQuantityBy(1);
+    }
+
     public void removeFromCart(int itemId, int quantityToRemove)
     {
         int currentQuantity = CartItems[itemId].Quantity;

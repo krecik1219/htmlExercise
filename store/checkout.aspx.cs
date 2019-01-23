@@ -76,11 +76,7 @@ public partial class store_checkout : System.Web.UI.Page
         if (user == null)
             return "Please login first";
         System.Diagnostics.Debug.WriteLine("addToCart(): user name=" + user.Name);
-        var items = HttpContext.Current.Session["items"] as List<Item>;
-        var item = items.Find(x => x.Id == itemId);
-        System.Diagnostics.Debug.WriteLine("item: id=" + item.Id + " ; name=" + item.Name);
-        var cartItem = new CartItem(item, quantity);
-        user.ShoppingCart.addToCart(cartItem);
+        user.ShoppingCart.increaseQuantityBy(itemId, 1);
         return "Item added to your cart";
     }
 
@@ -92,10 +88,6 @@ public partial class store_checkout : System.Web.UI.Page
         if (user == null)
             return "Please login first";
         System.Diagnostics.Debug.WriteLine("removeFromCart(): user name=" + user.Name);
-        var items = HttpContext.Current.Session["items"] as List<Item>;
-        var item = items.Find(x => x.Id == itemId);
-        System.Diagnostics.Debug.WriteLine("item: id=" + item.Id + " ; name=" + item.Name);
-        var cartItem = new CartItem(item, quantity);
         user.ShoppingCart.removeFromCart(itemId, quantity);
         return "Item removed from your cart";
     }
